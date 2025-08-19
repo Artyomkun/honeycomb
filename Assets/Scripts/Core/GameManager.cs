@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using RealLife5D.Systems;
 
 namespace RealLife5D.Core
 {
@@ -27,6 +28,8 @@ namespace RealLife5D.Core
         private ChakraSystem chakraSystem;
         private DimensionSystem dimensionSystem;
         private WorldSystem worldSystem;
+        private KarmaSystem karmaSystem;
+        private ReincarnationSystem reincarnationSystem;
         
         void Awake()
         {
@@ -53,10 +56,14 @@ namespace RealLife5D.Core
             chakraSystem = GetComponent<ChakraSystem>();
             dimensionSystem = GetComponent<DimensionSystem>();
             worldSystem = GetComponent<WorldSystem>();
+            karmaSystem = GetComponent<KarmaSystem>();
+            reincarnationSystem = GetComponent<ReincarnationSystem>();
             
             if (chakraSystem == null) chakraSystem = gameObject.AddComponent<ChakraSystem>();
             if (dimensionSystem == null) dimensionSystem = gameObject.AddComponent<DimensionSystem>();
             if (worldSystem == null) worldSystem = gameObject.AddComponent<WorldSystem>();
+            if (karmaSystem == null) karmaSystem = gameObject.AddComponent<KarmaSystem>();
+            if (reincarnationSystem == null) reincarnationSystem = gameObject.AddComponent<ReincarnationSystem>();
         }
         
         public void AdvanceChakraLevel()
@@ -105,15 +112,18 @@ namespace RealLife5D.Core
         {
             isDead = true;
             
-            // Игрок не знает о смерти - просто переход в другой мир
+            // Реинкарнация с учетом кармы
+            if (reincarnationSystem != null)
+            {
+                reincarnationSystem.Reincarnate();
+                return;
+            }
+            
+            // Fallback на линейный переход мира
             int newWorldIndex = (currentWorldIndex + 1) % totalWorlds;
             currentWorldIndex = newWorldIndex;
             worldSystem.TransitionToWorld(currentWorldIndex);
-            
-            // Сохраняем прогресс чакр и измерений
             SaveGameState();
-            
-            // Перезагружаем сцену в новом мире
             SceneManager.LoadScene("World_" + currentWorldIndex);
         }
         

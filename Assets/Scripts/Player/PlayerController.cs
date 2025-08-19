@@ -43,6 +43,7 @@ namespace RealLife5D.Player
         private GameManager gameManager;
         private ChakraSystem chakraSystem;
         private QuestSystem questSystem;
+        private KarmaSystem karmaSystem;
         
         // Input
         private float horizontalInput;
@@ -76,6 +77,7 @@ namespace RealLife5D.Player
             {
                 chakraSystem = gameManager.GetComponent<ChakraSystem>();
                 questSystem = gameManager.GetComponent<QuestSystem>();
+                karmaSystem = gameManager.GetComponent<KarmaSystem>();
             }
             
             if (characterController == null)
@@ -226,6 +228,12 @@ namespace RealLife5D.Player
                 // Визуальные эффекты медитации
                 Debug.Log("Начинается медитация...");
                 
+                // Карма за медитацию
+                if (karmaSystem != null)
+                {
+                    karmaSystem.AddKarmaForAction(KarmaAction.Meditation);
+                }
+                
                 // Обновляем квесты
                 if (questSystem != null)
                 {
@@ -285,6 +293,10 @@ namespace RealLife5D.Player
                 
                 // Исцеляем себя
                 currentHealth = Mathf.Min(maxHealth, currentHealth + healingPower);
+                if (karmaSystem != null)
+                {
+                    karmaSystem.AddKarmaForAction(KarmaAction.HealSelf);
+                }
                 
                 // Исцеляем ближайших NPC
                 Collider[] colliders = Physics.OverlapSphere(transform.position, 5f);
@@ -294,6 +306,10 @@ namespace RealLife5D.Player
                     if (npc != null)
                     {
                         npc.Heal(healingPower * 0.5f);
+                        if (karmaSystem != null)
+                        {
+                            karmaSystem.AddKarmaForAction(KarmaAction.HealOthers);
+                        }
                     }
                 }
                 

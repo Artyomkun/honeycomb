@@ -42,6 +42,7 @@ namespace RealLife5D.Systems
         private void InitializeChakras()
         {
             // 7 базовых чакр
+            // Сакральные чакры (1-3)
             chakras.Add(new ChakraData
             {
                 level = 1,
@@ -58,7 +59,7 @@ namespace RealLife5D.Systems
             {
                 level = 2,
                 name = "Свадхистана (Сакральная)",
-                description = "Сакральная чакра - центр эмоций и творчества",
+                description = "Сакральная чакра - центр эмоций, творчества и сексуальной энергии",
                 chakraColor = Color.orange,
                 mantra = "VAM",
                 abilities = new List<string> { "Эмоциональная стабильность", "Творческие способности", "Сексуальная энергия" },
@@ -70,7 +71,7 @@ namespace RealLife5D.Systems
             {
                 level = 3,
                 name = "Манипура (Солнечное сплетение)",
-                description = "Чакра солнечного сплетения - воля и сила",
+                description = "Чакра солнечного сплетения - воля, сила и самодисциплина",
                 chakraColor = Color.yellow,
                 mantra = "RAM",
                 abilities = new List<string> { "Сила воли", "Лидерские качества", "Метаболизм" },
