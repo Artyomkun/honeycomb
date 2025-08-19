@@ -44,6 +44,8 @@ namespace RealLife5D.Player
         private ChakraSystem chakraSystem;
         private QuestSystem questSystem;
         private KarmaSystem karmaSystem;
+        private MoodSystem moodSystem;
+        private DiseaseSystem diseaseSystem;
         
         // Input
         private float horizontalInput;
@@ -78,6 +80,8 @@ namespace RealLife5D.Player
                 chakraSystem = gameManager.GetComponent<ChakraSystem>();
                 questSystem = gameManager.GetComponent<QuestSystem>();
                 karmaSystem = gameManager.GetComponent<KarmaSystem>();
+                moodSystem = gameManager.GetComponent<MoodSystem>();
+                diseaseSystem = gameManager.GetComponent<DiseaseSystem>();
             }
             
             if (characterController == null)
@@ -199,6 +203,12 @@ namespace RealLife5D.Player
                 }
                 
                 currentHealth = Mathf.Min(maxHealth, currentHealth + Time.deltaTime * healthRegeneration);
+                
+                // Муд/болезни влияние
+                if (moodSystem != null)
+                {
+                    moodSystem.ApplyMeditationBoost();
+                }
             }
         }
         
@@ -232,6 +242,13 @@ namespace RealLife5D.Player
                 if (karmaSystem != null)
                 {
                     karmaSystem.AddKarmaForAction(KarmaAction.Meditation);
+                }
+                
+                // Настроение в плюс
+                if (moodSystem != null)
+                {
+                    moodSystem.AddCalm(0.1f);
+                    moodSystem.AddLove(0.05f);
                 }
                 
                 // Обновляем квесты
@@ -372,6 +389,10 @@ namespace RealLife5D.Player
         public void TakeDamage(float damage)
         {
             currentHealth -= damage;
+            if (moodSystem != null)
+            {
+                moodSystem.ApplyDamageShock(damage);
+            }
             
             if (currentHealth <= 0)
             {

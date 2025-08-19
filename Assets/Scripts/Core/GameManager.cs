@@ -30,6 +30,8 @@ namespace RealLife5D.Core
         private WorldSystem worldSystem;
         private KarmaSystem karmaSystem;
         private ReincarnationSystem reincarnationSystem;
+        private MoodSystem moodSystem;
+        private DiseaseSystem diseaseSystem;
         
         void Awake()
         {
@@ -58,12 +60,16 @@ namespace RealLife5D.Core
             worldSystem = GetComponent<WorldSystem>();
             karmaSystem = GetComponent<KarmaSystem>();
             reincarnationSystem = GetComponent<ReincarnationSystem>();
+            moodSystem = GetComponent<MoodSystem>();
+            diseaseSystem = GetComponent<DiseaseSystem>();
             
             if (chakraSystem == null) chakraSystem = gameObject.AddComponent<ChakraSystem>();
             if (dimensionSystem == null) dimensionSystem = gameObject.AddComponent<DimensionSystem>();
             if (worldSystem == null) worldSystem = gameObject.AddComponent<WorldSystem>();
             if (karmaSystem == null) karmaSystem = gameObject.AddComponent<KarmaSystem>();
             if (reincarnationSystem == null) reincarnationSystem = gameObject.AddComponent<ReincarnationSystem>();
+            if (moodSystem == null) moodSystem = gameObject.AddComponent<MoodSystem>();
+            if (diseaseSystem == null) diseaseSystem = gameObject.AddComponent<DiseaseSystem>();
         }
         
         public void AdvanceChakraLevel()
