@@ -179,10 +179,10 @@ namespace RealLife5D.Systems
             {
                 level = 12,
                 name = "Атмадхана (Душевная)",
-                description = "Душевная чакра - готовность стать Куратором",
+                description = "Душевная чакра - готовность стать Куратором Земель",
                 chakraColor = Color.rainbow,
                 mantra = "ATMA",
-                abilities = new List<string> { "Статус Куратора", "Создание новых миров", "Бесконечная мудрость" },
+                abilities = new List<string> { "Статус Куратора Земель", "Наблюдение и баланс 54 Земель", "Бесконечная мудрость" },
                 energyMultiplier = 20.0f,
                 isUnlocked = false
             });

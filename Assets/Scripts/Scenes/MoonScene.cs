@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 
 namespace RealLife5D.Scenes
@@ -26,6 +27,7 @@ namespace RealLife5D.Scenes
         public GameObject moonUI;
         public GameObject challengeUI;
         public GameObject victoryUI;
+        public Text dialogueText;
         
         [Header("Audio")]
         public AudioSource ambientAudio;
