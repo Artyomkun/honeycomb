@@ -83,6 +83,11 @@ namespace RealLife5D.Systems
         DimensionShift  // Сдвиг измерения
     }
     
+    /// <summary>
+    /// Система квестов для игры Real Life 5D
+    /// Игроки не знают о существовании квестов - они основаны на точных действиях
+    /// Квесты очень сложные и требуют глубокого понимания механик игры
+    /// </summary>
     public class QuestSystem : MonoBehaviour
     {
         [Header("Quest Data")]
@@ -378,12 +383,17 @@ namespace RealLife5D.Systems
             if (activeQuests.Count < maxActiveQuests)
             {
                 List<QuestData> availableQuests = GetAvailableQuests();
-                List<QuestData> inactiveQuests = availableQuests.FindAll(q => !q.isActive && !q.isCompleted);
+                // Фильтруем только очень сложные квесты (Hard, Extreme, Impossible)
+                List<QuestData> difficultQuests = availableQuests.FindAll(q => 
+                    !q.isActive && !q.isCompleted && 
+                    (q.difficulty == QuestDifficulty.Hard || 
+                     q.difficulty == QuestDifficulty.Extreme || 
+                     q.difficulty == QuestDifficulty.Impossible));
                 
-                if (inactiveQuests.Count > 0)
+                if (difficultQuests.Count > 0)
                 {
-                    QuestData randomQuest = inactiveQuests[UnityEngine.Random.Range(0, inactiveQuests.Count)];
-                    ActivateQuest(randomQuest);
+                    QuestData selectedQuest = difficultQuests[UnityEngine.Random.Range(0, difficultQuests.Count)];
+                    ActivateQuest(selectedQuest);
                 }
             }
         }

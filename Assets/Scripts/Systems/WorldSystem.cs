@@ -79,92 +79,92 @@ namespace RealLife5D.Systems
                     world.uniqueFeatures = new List<string> { "Стандартная физика", "Обычные люди", "Нормальное время" };
                     break;
                     
-                case 1: // Постапокалиптический мир
-                    world.name = "Земля-1 (Руины)";
-                    world.description = "Мир после ядерной войны";
-                    world.worldType = WorldType.Apocalyptic;
-                    world.difficulty = 2.5f;
-                    world.worldColor = Color.red;
+                case 1: // Параллельная Земля
+                    world.name = "Земля-1";
+                    world.description = "Параллельная версия Земли в том же измерении";
+                    world.worldType = WorldType.Normal;
+                    world.difficulty = 1.0f;
+                    world.worldColor = Color.green;
                     world.isUnlocked = false;
                     world.requiredChakraLevel = 2;
-                    world.uniqueFeatures = new List<string> { "Радиация", "Мутанты", "Разрушенные города" };
+                    world.uniqueFeatures = new List<string> { "Стандартная физика", "Обычные люди", "Нормальное время" };
                     break;
                     
-                case 2: // Утопический мир
-                    world.name = "Земля-2 (Утопия)";
-                    world.description = "Идеальный мир без конфликтов";
-                    world.worldType = WorldType.Utopian;
-                    world.difficulty = 0.5f;
-                    world.worldColor = Color.cyan;
+                case 2: // Параллельная Земля
+                    world.name = "Земля-2";
+                    world.description = "Параллельная версия Земли в том же измерении";
+                    world.worldType = WorldType.Normal;
+                    world.difficulty = 1.0f;
+                    world.worldColor = Color.green;
                     world.isUnlocked = false;
                     world.requiredChakraLevel = 3;
-                    world.uniqueFeatures = new List<string> { "Мир и гармония", "Продвинутые технологии", "Духовное развитие" };
+                    world.uniqueFeatures = new List<string> { "Стандартная физика", "Обычные люди", "Нормальное время" };
                     break;
                     
-                case 3: // Технологический мир
-                    world.name = "Земля-3 (Технократия)";
-                    world.description = "Мир, управляемый искусственным интеллектом";
-                    world.worldType = WorldType.Technological;
-                    world.difficulty = 2.0f;
-                    world.worldColor = Color.blue;
+                case 3: // Параллельная Земля
+                    world.name = "Земля-3";
+                    world.description = "Параллельная версия Земли в том же измерении";
+                    world.worldType = WorldType.Normal;
+                    world.difficulty = 1.0f;
+                    world.worldColor = Color.green;
                     world.isUnlocked = false;
                     world.requiredChakraLevel = 4;
-                    world.uniqueFeatures = new List<string> { "AI правительство", "Кибернетика", "Виртуальная реальность" };
+                    world.uniqueFeatures = new List<string> { "Стандартная физика", "Обычные люди", "Нормальное время" };
                     break;
                     
-                case 4: // Мистический мир
-                    world.name = "Земля-4 (Магия)";
-                    world.description = "Мир, где магия реальна";
-                    world.worldType = WorldType.Mystical;
-                    world.difficulty = 3.0f;
-                    world.worldColor = Color.magenta;
+                case 4: // Параллельная Земля
+                    world.name = "Земля-4";
+                    world.description = "Параллельная версия Земли в том же измерении";
+                    world.worldType = WorldType.Normal;
+                    world.difficulty = 1.0f;
+                    world.worldColor = Color.green;
                     world.isUnlocked = false;
                     world.requiredChakraLevel = 5;
-                    world.uniqueFeatures = new List<string> { "Магические существа", "Заклинания", "Древние артефакты" };
+                    world.uniqueFeatures = new List<string> { "Стандартная физика", "Обычные люди", "Нормальное время" };
                     break;
                     
-                case 5: // Инопланетный мир
-                    world.name = "Земля-5 (Контакт)";
-                    world.description = "Мир, где люди и инопланетяне сосуществуют";
-                    world.worldType = WorldType.Alien;
-                    world.difficulty = 2.8f;
-                    world.worldColor = Color.yellow;
+                case 5: // Параллельная Земля
+                    world.name = "Земля-5";
+                    world.description = "Параллельная версия Земли в том же измерении";
+                    world.worldType = WorldType.Normal;
+                    world.difficulty = 1.0f;
+                    world.worldColor = Color.green;
                     world.isUnlocked = false;
                     world.requiredChakraLevel = 6;
-                    world.uniqueFeatures = new List<string> { "Инопланетные технологии", "Гибриды", "Космические порталы" };
+                    world.uniqueFeatures = new List<string> { "Стандартная физика", "Обычные люди", "Нормальное время" };
                     break;
                     
-                case 6: // Временной мир
-                    world.name = "Земля-6 (Время)";
-                    world.description = "Мир с искаженным временем";
-                    world.worldType = WorldType.TimeShifted;
-                    world.difficulty = 3.5f;
-                    world.worldColor = Color.orange;
+                case 6: // Параллельная Земля
+                    world.name = "Земля-6";
+                    world.description = "Параллельная версия Земли в том же измерении";
+                    world.worldType = WorldType.Normal;
+                    world.difficulty = 1.0f;
+                    world.worldColor = Color.green;
                     world.isUnlocked = false;
                     world.requiredChakraLevel = 7;
-                    world.uniqueFeatures = new List<string> { "Временные петли", "Ускоренное время", "Временные аномалии" };
+                    world.uniqueFeatures = new List<string> { "Стандартная физика", "Обычные люди", "Нормальное время" };
                     break;
                     
-                case 7: // Квантовый мир
-                    world.name = "Земля-7 (Квант)";
-                    world.description = "Мир, где квантовая физика проявляется макроскопически";
-                    world.worldType = WorldType.Quantum;
-                    world.difficulty = 4.0f;
-                    world.worldColor = Color.purple;
+                case 7: // Параллельная Земля
+                    world.name = "Земля-7";
+                    world.description = "Параллельная версия Земли в том же измерении";
+                    world.worldType = WorldType.Normal;
+                    world.difficulty = 1.0f;
+                    world.worldColor = Color.green;
                     world.isUnlocked = false;
                     world.requiredChakraLevel = 8;
-                    world.uniqueFeatures = new List<string> { "Квантовая телепортация", "Суперпозиция", "Квантовые существа" };
+                    world.uniqueFeatures = new List<string> { "Стандартная физика", "Обычные люди", "Нормальное время" };
                     break;
                     
-                default: // Остальные миры генерируются случайно
+                default: // Остальные миры - параллельные Земли
                     world.name = $"Земля-{index}";
-                    world.description = GenerateRandomDescription();
-                    world.worldType = (WorldType)Random.Range(0, System.Enum.GetValues(typeof(WorldType)).Length);
-                    world.difficulty = Random.Range(1.0f, 5.0f);
-                    world.worldColor = new Color(Random.value, Random.value, Random.value);
+                    world.description = "Параллельная версия Земли в том же измерении";
+                    world.worldType = WorldType.Normal;
+                    world.difficulty = 1.0f;
+                    world.worldColor = Color.green;
                     world.isUnlocked = false;
-                    world.requiredChakraLevel = Random.Range(1, 12);
-                    world.uniqueFeatures = GenerateRandomFeatures();
+                    world.requiredChakraLevel = Mathf.Min(index + 1, 12);
+                    world.uniqueFeatures = new List<string> { "Стандартная физика", "Обычные люди", "Нормальное время" };
                     break;
             }
             

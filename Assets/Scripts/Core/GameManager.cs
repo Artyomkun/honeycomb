@@ -105,13 +105,8 @@ namespace RealLife5D.Core
         {
             isDead = true;
             
-            // Переход в другой мир
-            int newWorldIndex = Random.Range(0, totalWorlds);
-            if (newWorldIndex == currentWorldIndex)
-            {
-                newWorldIndex = (newWorldIndex + 1) % totalWorlds;
-            }
-            
+            // Игрок не знает о смерти - просто переход в другой мир
+            int newWorldIndex = (currentWorldIndex + 1) % totalWorlds;
             currentWorldIndex = newWorldIndex;
             worldSystem.TransitionToWorld(currentWorldIndex);
             
@@ -120,6 +115,18 @@ namespace RealLife5D.Core
             
             // Перезагружаем сцену в новом мире
             SceneManager.LoadScene("World_" + currentWorldIndex);
+        }
+        
+        public void OnLevelStagnation()
+        {
+            // При долгом стоянии на одном уровне - понижение чакры
+            if (currentChakraLevel > 1)
+            {
+                currentChakraLevel--;
+                Debug.Log($"Игрок застрял на уровне. Чакра понижена до {currentChakraLevel}");
+                SaveGameState();
+                UpdateUI();
+            }
         }
         
         public void CheckMoonAccess()

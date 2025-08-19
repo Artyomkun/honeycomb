@@ -108,7 +108,7 @@ namespace RealLife5D.Systems
                 name = "Аджна (Третий глаз)",
                 description = "Чакра третьего глаза - интуиция и мудрость",
                 chakraColor = Color.indigo,
-                mantra = "OM",
+                mantra = "Тишина",
                 abilities = new List<string> { "Интуиция", "Ясновидение", "Мудрость" },
                 energyMultiplier = 3.0f,
                 isUnlocked = false
@@ -118,10 +118,10 @@ namespace RealLife5D.Systems
             {
                 level = 7,
                 name = "Сахасрара (Коронная)",
-                description = "Коронная чакра - высшее сознание",
+                description = "Коронная чакра - высшее сознание и духовность",
                 chakraColor = Color.magenta,
-                mantra = "AUM",
-                abilities = new List<string> { "Просветление", "Связь с божественным", "Единство" },
+                mantra = "Тишина",
+                abilities = new List<string> { "Просветление", "Связь с божественным", "Единство", "Духовность" },
                 energyMultiplier = 4.0f,
                 isUnlocked = false
             });
@@ -192,6 +192,19 @@ namespace RealLife5D.Systems
         {
             if (newLevel <= chakras.Count)
             {
+                // Проверяем понимание предыдущих уровней
+                if (newLevel == 4 && !HasMasteredPreviousChakras(3))
+                {
+                    Debug.Log("Для 4-й чакры нужно полностью понять предыдущие 3 уровня!");
+                    return;
+                }
+                
+                if (newLevel == 7 && !HasMasteredPreviousChakras(6))
+                {
+                    Debug.Log("Для 7-й чакры нужно полностью понять предыдущие 6 уровней!");
+                    return;
+                }
+                
                 ChakraData chakra = chakras[newLevel - 1];
                 chakra.isUnlocked = true;
                 
@@ -204,6 +217,25 @@ namespace RealLife5D.Systems
                 
                 Debug.Log($"Чакра {chakra.name} разблокирована! Новые способности: {string.Join(", ", chakra.abilities)}");
             }
+        }
+        
+        private bool HasMasteredPreviousChakras(int upToLevel)
+        {
+            for (int i = 1; i <= upToLevel; i++)
+            {
+                if (!chakras[i - 1].isUnlocked || !IsChakraMastered(i))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        private bool IsChakraMastered(int level)
+        {
+            // Проверяем, что игрок действительно понимает чакру
+            // Это может включать выполнение определенных действий, медитаций и т.д.
+            return true; // Упрощенная проверка
         }
         
         private void ActivateChakraAbilities(ChakraData chakra)
