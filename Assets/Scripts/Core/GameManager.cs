@@ -121,6 +121,14 @@ namespace RealLife5D.Core
             // Реинкарнация с учетом кармы
             if (reincarnationSystem != null)
             {
+                // Если включен режим перманентной смерти и игрок не Куратор — полный конец игры
+                if (PlayerPrefs.GetInt("Permadeath", 0) == 1 && PlayerPrefs.GetInt("IsCurator", 0) == 0)
+                {
+                    Debug.Log("Перманентная смерть: конец игры, сохранения очищены.");
+                    PlayerPrefs.DeleteAll();
+                    SceneManager.LoadScene("GameOver");
+                    return;
+                }
                 reincarnationSystem.Reincarnate();
                 return;
             }
@@ -168,6 +176,12 @@ namespace RealLife5D.Core
         
         private void SaveGameState()
         {
+            // Перманентная смерть: если IsCurator != 1, сохраняем состояние; иначе прогресс блокируется
+            if (PlayerPrefs.GetInt("Permadeath", 0) == 1 && PlayerPrefs.GetInt("IsCurator", 0) == 0)
+            {
+                // режим перманентной смерти — не сохраняем прогресс, все стирается при смерти
+                return;
+            }
             PlayerPrefs.SetInt("CurrentDimension", currentDimension);
             PlayerPrefs.SetInt("CurrentChakraLevel", currentChakraLevel);
             PlayerPrefs.SetInt("CurrentWorldIndex", currentWorldIndex);

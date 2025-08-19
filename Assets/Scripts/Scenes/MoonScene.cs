@@ -529,14 +529,18 @@ namespace RealLife5D.Scenes
         
         public void ReturnToMainWorld()
         {
-            // Возвращаемся в основной мир как Куратор
+            // Если игрок стал Куратором, возврат на Землю запрещен
+            if (PlayerPrefs.GetInt("IsCurator", 0) == 1)
+            {
+                Debug.Log("Куратор не может вернуться на Землю. Он остается на уровне Луны/Кураторства.");
+                return;
+            }
+            
             if (gameManager != null)
             {
-                // Устанавливаем статус Куратора
                 PlayerPrefs.SetInt("IsCurator", 1);
                 PlayerPrefs.Save();
             }
-            
             SceneManager.LoadScene("MainWorld");
         }
         

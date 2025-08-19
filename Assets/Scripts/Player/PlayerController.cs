@@ -419,15 +419,10 @@ namespace RealLife5D.Player
         private void UpdateUI()
         {
             // Обновляем UI элементы
-            if (healthBar != null)
-            {
-                // Обновляем полоску здоровья
-            }
+            // Полоска здоровья показывается, но энергия скрыта, кроме особых случаев
+            if (healthBar != null) { }
             
-            if (energyBar != null && chakraSystem != null)
-            {
-                // Обновляем полоску энергии
-            }
+            // Энергия не отображается стандартно (скрыта)
             
             if (chakraUI != null)
             {
