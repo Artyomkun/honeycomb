@@ -109,7 +109,7 @@ namespace RealLife5D.Systems
                 name = "Аджна (Третий глаз)",
                 description = "Чакра третьего глаза - интуиция и мудрость",
                 chakraColor = Color.indigo,
-                mantra = "Тишина",
+                mantra = "AUM",
                 abilities = new List<string> { "Интуиция", "Ясновидение", "Мудрость" },
                 energyMultiplier = 3.0f,
                 isUnlocked = false

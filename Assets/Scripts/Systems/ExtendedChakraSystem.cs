@@ -43,12 +43,14 @@ namespace RealLife5D.Systems
 				{
 					index = i,
 					name = $"Чакра {i+1}",
-					mantra = (i == 5 || i == 6) ? "Тишина" : "OM",
+					mantra = "OM",
 					energyMultiplier = 1f + i * 0.02f,
 					unlocked = false
 				};
 				if (i == 3) ch.abilities.Add("Любовь");
 				if (i == 6) ch.abilities.Add("Духовность");
+				if (i == 5) ch.mantra = "Тишина"; // 6-я чакра (Аджна) по индексу 5 — Тишина? нет, AUM требуется ниже
+				if (i == 6) ch.mantra = "AUM";    // 7-я чакра (Сахасрара) по индексу 6
 				chakras.Add(ch);
 			}
 			// Предрасположенность рождения

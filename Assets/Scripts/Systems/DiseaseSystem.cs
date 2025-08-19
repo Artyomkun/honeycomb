@@ -33,6 +33,7 @@ namespace RealLife5D.Systems
 		public MoodSystem moodSystem;
 		public ChakraSystem chakraSystem;
 		public KarmaSystem karmaSystem;
+		public DiseaseCatalog diseaseCatalog;
 		
 		void Start()
 		{
@@ -42,6 +43,8 @@ namespace RealLife5D.Systems
 				moodSystem = gm.GetComponent<MoodSystem>();
 				chakraSystem = gm.GetComponent<ChakraSystem>();
 				karmaSystem = gm.GetComponent<KarmaSystem>();
+				diseaseCatalog = gm.GetComponent<DiseaseCatalog>();
+				if (diseaseCatalog != null) diseaseCatalog.Load();
 			}
 		}
 		
