@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "game-server.fullname" . }}
+  labels:
+    app: game-server
+spec:
+  selector:
+    matchLabels:
+      app: game-server
+  endpoints:
+  - port: metrics
+    interval: 15s
+    path: /metrics

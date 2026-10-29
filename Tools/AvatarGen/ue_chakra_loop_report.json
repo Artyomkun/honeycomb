@@ -1,0 +1,131 @@
+{
+  "checks": [
+    {
+      "check": "start_chakra_is_1",
+      "passed": true,
+      "detail": "1"
+    },
+    {
+      "check": "start_dimension_is_3",
+      "passed": true,
+      "detail": "3"
+    },
+    {
+      "check": "moon_not_accessible_at_start",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "final_chakra_is_12",
+      "passed": true,
+      "detail": "12"
+    },
+    {
+      "check": "final_dimension_is_5",
+      "passed": true,
+      "detail": "5"
+    },
+    {
+      "check": "moon_accessible_at_end",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dimension_4_reached_at_chakra_ge_7",
+      "passed": true,
+      "detail": "[{\"from\": 3, \"to\": 4, \"chakra\": 7}, {\"from\": 4, \"to\": 5, \"chakra\": 10}]"
+    },
+    {
+      "check": "dimension_5_reached_at_chakra_ge_10",
+      "passed": true,
+      "detail": "[{\"from\": 3, \"to\": 4, \"chakra\": 7}, {\"from\": 4, \"to\": 5, \"chakra\": 10}]"
+    }
+  ],
+  "timeline": [
+    {
+      "session": 0,
+      "practiced": 1,
+      "chakra_after": 2,
+      "dimension_after": 3,
+      "steps": 4
+    },
+    {
+      "session": 1,
+      "practiced": 2,
+      "chakra_after": 3,
+      "dimension_after": 3,
+      "steps": 6
+    },
+    {
+      "session": 2,
+      "practiced": 3,
+      "chakra_after": 4,
+      "dimension_after": 3,
+      "steps": 8
+    },
+    {
+      "session": 3,
+      "practiced": 4,
+      "chakra_after": 5,
+      "dimension_after": 3,
+      "steps": 10
+    },
+    {
+      "session": 4,
+      "practiced": 5,
+      "chakra_after": 6,
+      "dimension_after": 3,
+      "steps": 12
+    },
+    {
+      "session": 5,
+      "practiced": 6,
+      "chakra_after": 7,
+      "dimension_after": 4,
+      "steps": 13
+    },
+    {
+      "session": 6,
+      "practiced": 7,
+      "chakra_after": 8,
+      "dimension_after": 4,
+      "steps": 16
+    },
+    {
+      "session": 7,
+      "practiced": 8,
+      "chakra_after": 9,
+      "dimension_after": 4,
+      "steps": 19
+    },
+    {
+      "session": 8,
+      "practiced": 9,
+      "chakra_after": 10,
+      "dimension_after": 5,
+      "steps": 22
+    },
+    {
+      "session": 9,
+      "practiced": 10,
+      "chakra_after": 12,
+      "dimension_after": 5,
+      "steps": 34
+    }
+  ],
+  "dimension_advances": [
+    {
+      "from": 3,
+      "to": 4,
+      "chakra": 7
+    },
+    {
+      "from": 4,
+      "to": 5,
+      "chakra": 10
+    }
+  ],
+  "passed": 8,
+  "failed": 0,
+  "ok": true
+}

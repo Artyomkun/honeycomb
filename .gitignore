@@ -1,0 +1,44 @@
+# Unreal Engine generated
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# Builds
+Builds/
+
+# Mac / Linux
+.DS_Store
+*.xcworkspace/
+
+# IDE
+.idea/
+.vscode/
+
+# Local config
+*.ini
+!Config/DefaultGame.ini
+!Config/DefaultEngine.ini
+!Config/DefaultInput.ini
+
+# MCP
+mcp-1.0.3/
+mcp-bridge/
+
+# Blender
+.mypy_cache/
+**/__pycache__/**
+Source/earth 2.blend
+
+# Avatar Dev
+Source/NekoLegends
+
+# User Settings
+UserSettings/

@@ -1,0 +1,23 @@
+{
+  "sex": "male",
+  "age": 32,
+  "height": 178.0,
+  "arm_span": 181.0,
+  "weight": 74.0,
+  "chest": 0.0,
+  "waist": 0.0,
+  "hip": 0.0,
+  "inseam": 0.0,
+  "shoulder_width": 0.0,
+  "head_circumference": 0.0,
+  "provenance": {
+    "height": "measured",
+    "arm_span": "measured",
+    "weight": "measured"
+  },
+  "notes": [
+    "Height comes from HMD Z with LocalFloor tracking origin.",
+    "Arm span is the maximum observed distance between the two hand controllers.",
+    "Girths are regressed from BMI; the calibration step can override them."
+  ]
+}

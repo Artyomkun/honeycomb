@@ -1,0 +1,48 @@
+{
+  "skeletal_meshes": [
+    {
+      "asset": "/Game/Avatars/SK_ParametricMannequin",
+      "skeleton": "/Game/Avatars/SK_ParametricMannequin_Skeleton.SK_ParametricMannequin_Skeleton",
+      "material_slots": [
+        "HumanB_Blue_Mat",
+        "HumanB_Joint_Mat",
+        "Human_Eyes_Mat"
+      ]
+    },
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_MannyXR_left",
+      "skeleton": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "material_slots": [
+        "M_Torso"
+      ]
+    },
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_MannyXR_right",
+      "skeleton": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "material_slots": [
+        "M_Torso"
+      ]
+    },
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_QuinnXR_left",
+      "skeleton": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "material_slots": [
+        "Quinn_02"
+      ]
+    },
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_QuinnXR_right",
+      "skeleton": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "material_slots": [
+        "Quinn_02"
+      ]
+    }
+  ],
+  "blueprint": {
+    "asset": "/Game/XRMannequins/BP_MannequinsXR",
+    "class": "Blueprint",
+    "generated_class": "BP_MannequinsXR_C",
+    "cdo": "Default__BP_MannequinsXR_C",
+    "cdo_error": "'SkeletalMeshComponent' object has no attribute 'get_components_by_class'"
+  }
+}

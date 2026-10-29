@@ -1,0 +1,752 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.8",
+	"Category": "",
+	"Description": "Honeycomb 5D VR game",
+	"Modules": [
+		{
+			"Name": "HoneycombCore",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		},
+		{
+			"Name": "Honeycomb",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		},
+		{
+			"Name": "HoneycombServer",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		},
+		{
+			"Name": "HoneycombEditor",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "OpenXR",
+			"Enabled": true
+		},
+		{
+			"Name": "OpenXREyeTracker",
+			"Enabled": true
+		},
+		{
+			"Name": "OpenXRHandTracking",
+			"Enabled": true
+		},
+		{
+			"Name": "PICOController",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux",
+				"Android"
+			]
+		},
+		{
+			"Name": "HPMotionController",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "MetaHumanCharacter",
+			"Enabled": true
+		},
+		{
+			"Name": "MetaHumanCrowd",
+			"Enabled": true
+		},
+		{
+			"Name": "MetaHumanLiveLink",
+			"Enabled": true
+		},
+		{
+			"Name": "MetaHumanAnimationTools",
+			"Enabled": true
+		},
+		{
+			"Name": "EditorScriptingUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "MetaHumanCharacterUAF",
+			"Enabled": true
+		},
+		{
+			"Name": "MetaHumanCalibrationDiagnostics",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "MetaHumanCalibrationProcessing",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "AIAssistant",
+			"Enabled": true
+		},
+		{
+			"Name": "GameplayBehaviors",
+			"Enabled": true
+		},
+		{
+			"Name": "AIModuleToolset",
+			"Enabled": true
+		},
+		{
+			"Name": "AnalyticsBlueprintLibrary",
+			"Enabled": true
+		},
+		{
+			"Name": "AndroidBackgroundService",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Android"
+			]
+		},
+		{
+			"Name": "AndroidCamera",
+			"Enabled": true
+		},
+		{
+			"Name": "AnimationBudgetAllocator",
+			"Enabled": true
+		},
+		{
+			"Name": "AnimGen",
+			"Enabled": true
+		},
+		{
+			"Name": "AnimDatabase",
+			"Enabled": true
+		},
+		{
+			"Name": "AnimToTexture",
+			"Enabled": true
+		},
+		{
+			"Name": "AudioGameplay",
+			"Enabled": true
+		},
+		{
+			"Name": "AudioGameplayVolume",
+			"Enabled": true
+		},
+		{
+			"Name": "BlueprintFileUtils",
+			"Enabled": true
+		},
+		{
+			"Name": "BlueprintStats",
+			"Enabled": true
+		},
+		{
+			"Name": "BlueprintSnapNodes",
+			"Enabled": true
+		},
+		{
+			"Name": "CascadeToNiagaraConverter",
+			"Enabled": true
+		},
+		{
+			"Name": "RigMapper",
+			"Enabled": true
+		},
+		{
+			"Name": "RigMapperOp",
+			"Enabled": true
+		},
+		{
+			"Name": "CameraCalibrationML",
+			"Enabled": true
+		},
+		{
+			"Name": "CodeView",
+			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		},
+		{
+			"Name": "ConversationToolset",
+			"Enabled": true
+		},
+		{
+			"Name": "GeoReferencing",
+			"Enabled": true
+		},
+		{
+			"Name": "Iris",
+			"Enabled": true
+		},
+		{
+			"Name": "HTTPChunkInstaller",
+			"Enabled": true
+		},
+		{
+			"Name": "HairCardGenerator",
+			"Enabled": true
+		},
+		{
+			"Name": "LidarPointCloud",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Mac",
+				"Linux"
+			]
+		},
+		{
+			"Name": "LiveLinkCurveDebugUI",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkUnrealDevice",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkOBSDevice",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkExampleDevice",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkKiProDevice",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkOverNDisplay",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux"
+			]
+		},
+		{
+			"Name": "LiveLinkSoundDevice",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveUpdateForSlate",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveCodingToolset",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkCamera",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkFaceImporter",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkFreeD",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkInputDevice",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkLens",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkMasterLockit",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkOpenTrackIO",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkOpenVR",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "LiveLinkPrestonMDR",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkVRPN",
+			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkXR",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "MetaHumanCoreML",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Mac",
+				"IOS",
+				"TVOS",
+				"VisionOS"
+			]
+		},
+		{
+			"Name": "MetaHumanGenerator",
+			"Enabled": true
+		},
+		{
+			"Name": "MetaHumanRuntime",
+			"Enabled": true
+		},
+		{
+			"Name": "MLAdapter",
+			"Enabled": true
+		},
+		{
+			"Name": "DetailPoseModel",
+			"Enabled": true
+		},
+		{
+			"Name": "MLDeformerFramework",
+			"Enabled": true
+		},
+		{
+			"Name": "NearestNeighborModel",
+			"Enabled": true
+		},
+		{
+			"Name": "NeuralMorphModel",
+			"Enabled": true
+		},
+		{
+			"Name": "MLflow",
+			"Enabled": true
+		},
+		{
+			"Name": "VertexDeltaModel",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "Avalanche",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "DataLink",
+			"Enabled": true
+		},
+		{
+			"Name": "AvalancheDataLink",
+			"Enabled": true
+		},
+		{
+			"Name": "DataLinkOAuth",
+			"Enabled": true
+		},
+		{
+			"Name": "AvalancheDisplayCluster",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux"
+			]
+		},
+		{
+			"Name": "SceneState",
+			"Enabled": true
+		},
+		{
+			"Name": "SceneStateDataLink",
+			"Enabled": true
+		},
+		{
+			"Name": "AvalancheSceneState",
+			"Enabled": true
+		},
+		{
+			"Name": "AvalancheSequenceNavigator",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "MQTT",
+			"Enabled": true
+		},
+		{
+			"Name": "MultiServerReplication",
+			"Enabled": true
+		},
+		{
+			"Name": "MultiUserClient",
+			"Enabled": true
+		},
+		{
+			"Name": "NaniteDisplacedMesh",
+			"Enabled": true
+		},
+		{
+			"Name": "NaniteAssemblyEditorUtils",
+			"Enabled": true
+		},
+		{
+			"Name": "ExampleCustomDataInterface",
+			"Enabled": true
+		},
+		{
+			"Name": "NiagaraNanite",
+			"Enabled": true
+		},
+		{
+			"Name": "NiagaraMRQ",
+			"Enabled": true
+		},
+		{
+			"Name": "NiagaraToolsets",
+			"Enabled": true
+		},
+		{
+			"Name": "NiagaraUIRenderer",
+			"Enabled": true
+		},
+		{
+			"Name": "NiagaraFluids",
+			"Enabled": true
+		},
+		{
+			"Name": "NNEModelTests",
+			"Enabled": true
+		},
+		{
+			"Name": "NNERuntimeCoreML",
+			"Enabled": true
+		},
+		{
+			"Name": "NNERuntimeIREE",
+			"Enabled": true
+		},
+		{
+			"Name": "NNERuntimeRDG",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemAmazon",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemApple",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Mac",
+				"IOS",
+				"TVOS"
+			]
+		},
+		{
+			"Name": "OnlineSubsystemEOS",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemFacebook",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemGDK",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "OnlineSubsystemGoogle",
+			"Enabled": true
+		},
+		{
+			"Name": "MSGameOSSSelector",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "OnlineSubsystemSteam",
+			"Enabled": true
+		},
+		{
+			"Name": "TextureFormatOodle",
+			"Enabled": true
+		},
+		{
+			"Name": "OpenImageDenoise",
+			"Enabled": true
+		},
+		{
+			"Name": "OpenXRMsftHandInteraction",
+			"Enabled": true
+		},
+		{
+			"Name": "PhysicsToolsets",
+			"Enabled": true
+		},
+		{
+			"Name": "PerformanceMonitor",
+			"Enabled": true
+		},
+		{
+			"Name": "PixelStreaming2",
+			"Enabled": true
+		},
+		{
+			"Name": "PixelStreamingPlayer",
+			"Enabled": true
+		},
+		{
+			"Name": "PlatformDLC",
+			"Enabled": true
+		},
+		{
+			"Name": "PluginReferenceViewer",
+			"Enabled": true
+		},
+		{
+			"Name": "PluginTemplateTool",
+			"Enabled": true
+		},
+		{
+			"Name": "PluginToolset",
+			"Enabled": true
+		},
+		{
+			"Name": "PostProcessMaterialChainGraph",
+			"Enabled": true
+		},
+		{
+			"Name": "PCGExternalDataInterop",
+			"Enabled": true
+		},
+		{
+			"Name": "PCGFastGeoInterop",
+			"Enabled": true
+		},
+		{
+			"Name": "PCGGeometryScriptInterop",
+			"Enabled": true
+		},
+		{
+			"Name": "PCGNaniteAssembliesInterop",
+			"Enabled": true
+		},
+		{
+			"Name": "PCGNiagaraInterop",
+			"Enabled": true
+		},
+		{
+			"Name": "PCGPythonInterop",
+			"Enabled": true
+		},
+		{
+			"Name": "PCGWaterInterop",
+			"Enabled": true
+		},
+		{
+			"Name": "PropertyAnimator",
+			"Enabled": true
+		},
+		{
+			"Name": "PropertyAnimatorCore",
+			"Enabled": true
+		},
+		{
+			"Name": "PythonAutomationTest",
+			"Enabled": true
+		},
+		{
+			"Name": "QuicMessaging",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "RemoteDatabaseSupport",
+			"Enabled": true
+		},
+		{
+			"Name": "RemoteSession",
+			"Enabled": true
+		},
+		{
+			"Name": "RenderGrid",
+			"Enabled": true
+		},
+		{
+			"Name": "RenderTrace",
+			"Enabled": true
+		},
+		{
+			"Name": "RuntimeTests",
+			"Enabled": true
+		},
+		{
+			"Name": "SandboxedEditing",
+			"Enabled": true
+		},
+		{
+			"Name": "MovieSceneMixedControlRig",
+			"Enabled": true
+		},
+		{
+			"Name": "SequencerAnimMixerToolset",
+			"Enabled": true
+		},
+		{
+			"Name": "ShaderToolkit",
+			"Enabled": true
+		},
+		{
+			"Name": "SerializationUtils",
+			"Enabled": true
+		},
+		{
+			"Name": "SkeletalMeshMorphTargetEditingTools",
+			"Enabled": true
+		},
+		{
+			"Name": "SocketSubsystemSteamIP",
+			"Enabled": true
+		},
+		{
+			"Name": "SocketSubsystemEOS",
+			"Enabled": true
+		},
+		{
+			"Name": "MultiUserTakes",
+			"Enabled": true
+		},
+		{
+			"Name": "TechAudioTools",
+			"Enabled": true
+		},
+		{
+			"Name": "Terminal",
+			"Enabled": true
+		},
+		{
+			"Name": "ModelContextProtocol",
+			"Enabled": true
+		},
+		{
+			"Name": "WaterAdvanced",
+			"Enabled": true
+		},
+		{
+			"Name": "WaterExtras",
+			"Enabled": true
+		},
+		{
+			"Name": "WebAPI",
+			"Enabled": true
+		},
+		{
+			"Name": "WinVirtualKeyboard",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "WorldStreamingInsights",
+			"Enabled": true
+		},
+		{
+			"Name": "XcodeGPUDebuggerPlugin",
+			"Enabled": true
+		},
+		{
+			"Name": "XRCreativeFramework",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "XRVisualization",
+			"Enabled": true
+		},
+		{
+			"Name": "AlembicHairImporter",
+			"Enabled": true
+		},
+		{
+			"Name": "HairModelingToolset",
+			"Enabled": true
+		},
+		{
+			"Name": "HairStrandsMutable",
+			"Enabled": true
+		},
+		{
+			"Name": "GeometryCacheAbcFile",
+			"Enabled": true
+		}
+	],
+	"TargetPlatforms": [
+		"Android",
+		"IOS",
+		"Linux",
+		"Mac",
+		"PS4",
+		"PS5",
+		"Windows",
+		"WindowsNoEditor",
+		"Switch",
+		"XboxOne",
+		"XSX",
+		"VisionOS"
+	]
+}

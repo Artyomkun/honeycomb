@@ -1,0 +1,26 @@
+apiVersion: v2
+name: global-coordinator
+description: |
+  Global coordinator for the Honeycomb VR world.
+  Manages cross-region player migration, global chunk registry, and inter-region synchronization.
+
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
+home: https://honeycomb.world
+keywords:
+  - coordinator
+  - global
+  - migration
+  - honeycomb
+
+sources:
+  - https://github.com/honeycomb/global-coordinator
+
+maintainers:
+  - name: Artem Selemet
+    email: selemetartem@gmail.com
+    url: https://github.com/Artyomkun
+
+kubeVersion: ">=1.28.0"

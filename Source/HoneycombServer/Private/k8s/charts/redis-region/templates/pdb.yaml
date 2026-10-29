@@ -1,0 +1,17 @@
+{{- if .Values.podDisruptionBudget.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "redis-region.fullname" . }}
+  labels:
+    app: redis-region
+    region: {{ .Values.region }}
+spec:
+  # Стратегия: минимум 2 пода всегда работают.
+  # Это гарантирует, что у тебя будет как минимум один мастер и одна реплика,
+  # или две реплики, чтобы кластер не развалился.
+  minAvailable: {{ .Values.podDisruptionBudget.minAvailable }}
+  selector:
+    matchLabels:
+      app: redis-region
+{{- end }}

@@ -1,0 +1,65 @@
+apiVersion: v2
+name: honeycomb
+description: |
+  Honeycomb VR — distributed multiplayer VR game infrastructure.
+  This Helm chart deploys the entire backend stack for a single region.
+
+# Тип чарта (application или library)
+type: application
+
+# Версия чарта (SemVer 2.0)
+version: 0.1.0
+
+# Версия приложения (например, версия всей системы)
+appVersion: "1.0.0"
+
+# Домашняя страница проекта
+home: https://honeycomb.world
+
+# Ключевые слова для поиска
+keywords:
+  - vr
+  - multiplayer
+  - game-server
+  - honeycomb
+
+# Источники (например, репозитории)
+sources:
+  - https://github.com/Artyomkun/honeycomb
+
+# Информация об авторах
+maintainers:
+  - name: Artem Selemet
+    email: selemetartem@gmail.com
+    url: https://github.com/Artyomkun
+
+# Зависимости (все чарты, которые входят в систему)
+dependencies:
+  - name: gateway
+    version: ">=0.1.0"
+    repository: "file://charts/gateway"
+    condition: gateway.enabled
+  - name: game-server
+    version: ">=0.1.0"
+    repository: "file://charts/game-server"
+    condition: game-server.enabled
+  - name: redis-region
+    version: ">=0.1.0"
+    repository: "file://charts/redis-region"
+    condition: redis-region.enabled
+  - name: oracle-region
+    version: ">=0.1.0"
+    repository: "file://charts/oracle-region"
+    condition: oracle-region.enabled
+
+# Минимальная версия Kubernetes
+kubeVersion: ">=1.28.0"
+
+# Аннотации для дополнительной информации
+annotations:
+  artifacthub.io/links: |
+    - name: Documentation
+      url: https://docs.honeycomb.world
+    - name: Source
+      url: https://github.com/Artyomkun/honeycomb
+  artifacthub.io/operator: "false"

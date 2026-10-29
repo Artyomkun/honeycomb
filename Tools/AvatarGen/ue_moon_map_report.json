@@ -1,0 +1,52 @@
+{
+  "map": "/Game/Maps/MoonLevel",
+  "actors": [
+    {
+      "class": "PlayerStart",
+      "label": "MoonPlayerStart",
+      "loc": [
+        0.0,
+        0.0,
+        200.0
+      ]
+    },
+    {
+      "class": "MoonScene",
+      "label": "MoonScene",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "class": "DirectionalLight",
+      "label": "Sun",
+      "loc": [
+        0.0,
+        0.0,
+        1200.0
+      ]
+    },
+    {
+      "class": "SkyLight",
+      "label": "SkyLight",
+      "loc": [
+        0.0,
+        0.0,
+        600.0
+      ]
+    },
+    {
+      "class": "SkyAtmosphere",
+      "label": "SkyAtmosphere",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "ok": true,
+  "saved": true
+}

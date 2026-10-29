@@ -1,0 +1,118 @@
+# Регион
+region: "ru-msk"
+
+# Количество реплик
+replicaCount: 3
+
+# Стратегия обновления
+updateStrategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+
+# Образ контейнера
+image:
+  repository: honeycomb/gateway
+  tag: "1.0.0"
+  pullPolicy: Always
+
+# Настройки портов
+service:
+  httpPort: 80
+  httpsPort: 443
+  grpcPort: 50052
+  metricsPort: 9090
+
+# Ingress
+ingress:
+  enabled: true
+  host: "gateway-ru-msk.honeycomb.world"
+  tlsSecretName: "gateway-tls-ru-msk"
+
+# Ресурсы
+resources:
+  requests:
+    cpu: "1"
+    memory: "2Gi"
+  limits:
+    cpu: "2"
+    memory: "4Gi"
+
+# Автомасштабирование (HPA)
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 50
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+  targetActiveConnections: 100
+
+# Подключение к Redis
+redis:
+  host: "{{ .Release.Name }}-redis-region"
+  port: 6379
+  passwordSecret:
+    name: "{{ include \"honeycomb.fullname\" . }}-secrets"
+    key: redis-password
+
+# Подключение к глобальному координатору
+globalCoordinator:
+  host: "global-coordinator.global.svc.cluster.local"
+  port: 50053
+
+# Логирование
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+
+# Метрики (Prometheus)
+metrics:
+  enabled: true
+  port: 9090
+  path: "/metrics"
+
+# Настройки маршрутизации
+routing:
+  sessionTimeout: 3600
+  maxConnectionsPerIP: 10
+
+# Health Check
+healthCheck:
+  enabled: true
+  path: "/health"
+  port: 8080
+
+# Поддержка WebSocket
+websocket:
+  enabled: true
+  timeout: 3600
+
+# Поддержка HTTP/3
+http3:
+  enabled: true
+  port: 443
+
+# PodDisruptionBudget
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 2
+
+# Терминация
+terminationGracePeriodSeconds: 30
+
+# Дополнительные аннотации для подов
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "9090"
+
+# Селектор узлов
+nodeSelector: {}
+
+# Толерантности (для выделенных нод)
+tolerations: []
+
+# Секреты (создаются в templates/secrets.yaml)
+secrets:
+  create: false

@@ -1,0 +1,16 @@
+{{- if .Values.podDisruptionBudget.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "coordinator-local.fullname" . }}
+  labels:
+    app: coordinator-local
+    region: {{ .Values.region }}
+spec:
+  # Для координатора критично сохранять кворум
+  # Используем minAvailable, чтобы всегда оставался рабочий координатор
+  minAvailable: {{ .Values.podDisruptionBudget.minAvailable }}
+  selector:
+    matchLabels:
+      app: coordinator-local
+{{- end }}

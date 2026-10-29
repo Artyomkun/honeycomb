@@ -1,0 +1,580 @@
+{
+  "inventory": [
+    {
+      "path": "/Game/XRMannequins/Animations/A_MannequinsXR_Grasp_Right",
+      "name": "A_MannequinsXR_Grasp_Right",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/XRMannequins/Animations/A_MannequinsXR_Idle_Right",
+      "name": "A_MannequinsXR_Idle_Right",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/XRMannequins/Animations/A_MannequinsXR_IndexCurl_Right",
+      "name": "A_MannequinsXR_IndexCurl_Right",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/XRMannequins/Animations/A_MannequinsXR_Point_Right",
+      "name": "A_MannequinsXR_Point_Right",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/XRMannequins/Animations/A_MannequinsXR_ThumbUp_Right",
+      "name": "A_MannequinsXR_ThumbUp_Right",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/XRMannequins/Animations/MDT_MannequinsXR",
+      "name": "MDT_MannequinsXR",
+      "class": "MirrorDataTable"
+    },
+    {
+      "path": "/Game/XRMannequins/BP_MannequinsXR",
+      "name": "BP_MannequinsXR",
+      "class": "Blueprint"
+    },
+    {
+      "path": "/Game/XRMannequins/Materials/Functions/CA_Mannequin",
+      "name": "CA_Mannequin",
+      "class": "CurveLinearColorAtlas"
+    },
+    {
+      "path": "/Game/XRMannequins/Materials/Functions/ChromaticCurve",
+      "name": "ChromaticCurve",
+      "class": "CurveLinearColor"
+    },
+    {
+      "path": "/Game/XRMannequins/Materials/Functions/MF_Diffraction",
+      "name": "MF_Diffraction",
+      "class": "MaterialFunction"
+    },
+    {
+      "path": "/Game/XRMannequins/Materials/Functions/MF_logo3layers",
+      "name": "MF_logo3layers",
+      "class": "MaterialFunction"
+    },
+    {
+      "path": "/Game/XRMannequins/Materials/Functions/ML_BaseColorFallOff",
+      "name": "ML_BaseColorFallOff",
+      "class": "MaterialFunction"
+    },
+    {
+      "path": "/Game/XRMannequins/Materials/Instances/Manny/MI_Manny_01",
+      "name": "MI_Manny_01",
+      "class": "MaterialInstanceConstant"
+    },
+    {
+      "path": "/Game/XRMannequins/Materials/Instances/Manny/MI_Manny_02",
+      "name": "MI_Manny_02",
+      "class": "MaterialInstanceConstant"
+    },
+    {
+      "path": "/Game/XRMannequins/Materials/Instances/Quinn/MI_Quinn_01",
+      "name": "MI_Quinn_01",
+      "class": "MaterialInstanceConstant"
+    },
+    {
+      "path": "/Game/XRMannequins/Materials/Instances/Quinn/MI_Quinn_02",
+      "name": "MI_Quinn_02",
+      "class": "MaterialInstanceConstant"
+    },
+    {
+      "path": "/Game/XRMannequins/Materials/M_Mannequin",
+      "name": "M_Mannequin",
+      "class": "Material"
+    },
+    {
+      "path": "/Game/XRMannequins/Meshes/ABP_MannequinsXR",
+      "name": "ABP_MannequinsXR",
+      "class": "AnimBlueprint"
+    },
+    {
+      "path": "/Game/XRMannequins/Meshes/SK_MannequinsXR",
+      "name": "SK_MannequinsXR",
+      "class": "Skeleton"
+    },
+    {
+      "path": "/Game/XRMannequins/Meshes/SkeletalMeshLODSettings_MannequinsXR",
+      "name": "SkeletalMeshLODSettings_MannequinsXR",
+      "class": "SkeletalMeshLODSettings"
+    },
+    {
+      "path": "/Game/XRMannequins/Meshes/SKM_MannyXR_left",
+      "name": "SKM_MannyXR_left",
+      "class": "SkeletalMesh"
+    },
+    {
+      "path": "/Game/XRMannequins/Meshes/SKM_MannyXR_right",
+      "name": "SKM_MannyXR_right",
+      "class": "SkeletalMesh"
+    },
+    {
+      "path": "/Game/XRMannequins/Meshes/SKM_QuinnXR_left",
+      "name": "SKM_QuinnXR_left",
+      "class": "SkeletalMesh"
+    },
+    {
+      "path": "/Game/XRMannequins/Meshes/SKM_QuinnXR_right",
+      "name": "SKM_QuinnXR_right",
+      "class": "SkeletalMesh"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_01_ASAOPMASK_MSK",
+      "name": "T_Manny_01_ASAOPMASK_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_01_BN",
+      "name": "T_Manny_01_BN",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_01_CCRCCPlastic_MSK",
+      "name": "T_Manny_01_CCRCCPlastic_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_01_D",
+      "name": "T_Manny_01_D",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_01_MSR_MSK",
+      "name": "T_Manny_01_MSR_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_01_N",
+      "name": "T_Manny_01_N",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_01_Tan",
+      "name": "T_Manny_01_Tan",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_02_ASAOPMASK_MSK",
+      "name": "T_Manny_02_ASAOPMASK_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_02_BN",
+      "name": "T_Manny_02_BN",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_02_CCRCCPlastic_MSK",
+      "name": "T_Manny_02_CCRCCPlastic_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_02_D",
+      "name": "T_Manny_02_D",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_02_MSR_MSK",
+      "name": "T_Manny_02_MSR_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_02_N",
+      "name": "T_Manny_02_N",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Manny/T_Manny_02_Tan",
+      "name": "T_Manny_02_Tan",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_01_ASAOMASK_MSK",
+      "name": "T_Quinn_01_ASAOMASK_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_01_CCRCCPlastic_MSK",
+      "name": "T_Quinn_01_CCRCCPlastic_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_01ID_BN",
+      "name": "T_Quinn_01ID_BN",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_01ID_D",
+      "name": "T_Quinn_01ID_D",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_01ID_MSR_MSK",
+      "name": "T_Quinn_01ID_MSR_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_01ID_N",
+      "name": "T_Quinn_01ID_N",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_01ID_Tan",
+      "name": "T_Quinn_01ID_Tan",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_02_ASAOMASK_MSK",
+      "name": "T_Quinn_02_ASAOMASK_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_02_CCRCCPlastic_MSK",
+      "name": "T_Quinn_02_CCRCCPlastic_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_02ID_BN",
+      "name": "T_Quinn_02ID_BN",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_02ID_D",
+      "name": "T_Quinn_02ID_D",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_02ID_MSR_MSK",
+      "name": "T_Quinn_02ID_MSR_MSK",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_02ID_N",
+      "name": "T_Quinn_02ID_N",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Quinn/T_Quinn_02ID_Tan",
+      "name": "T_Quinn_02ID_Tan",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/XRMannequins/Textures/Shared/T_UE_Logo_M",
+      "name": "T_UE_Logo_M",
+      "class": "Texture2D"
+    },
+    {
+      "path": "/Game/Avatars/BP_PlayerAvatar",
+      "name": "BP_PlayerAvatar",
+      "class": "Blueprint"
+    },
+    {
+      "path": "/Game/Avatars/Human_Eyes_Mat",
+      "name": "Human_Eyes_Mat",
+      "class": "MaterialInstanceConstant"
+    },
+    {
+      "path": "/Game/Avatars/HumanB_Blue_Mat",
+      "name": "HumanB_Blue_Mat",
+      "class": "MaterialInstanceConstant"
+    },
+    {
+      "path": "/Game/Avatars/HumanB_Joint_Mat",
+      "name": "HumanB_Joint_Mat",
+      "class": "MaterialInstanceConstant"
+    },
+    {
+      "path": "/Game/Avatars/L_AVATAR_TEST",
+      "name": "L_AVATAR_TEST",
+      "class": "World"
+    },
+    {
+      "path": "/Game/Avatars/SK_ParametricMannequin",
+      "name": "SK_ParametricMannequin",
+      "class": "SkeletalMesh"
+    },
+    {
+      "path": "/Game/Avatars/SK_ParametricMannequin_Skeleton",
+      "name": "SK_ParametricMannequin_Skeleton",
+      "class": "Skeleton"
+    }
+  ],
+  "skeletons": [
+    {
+      "asset": "/Game/XRMannequins/Meshes/SK_MannequinsXR",
+      "class": "Skeleton",
+      "name": "SK_MannequinsXR",
+      "bone_tree": [
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D310AF60) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D310A420) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D170) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D230) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D2F0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D3B0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D470) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D530) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D5F0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D6B0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D770) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D830) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D8F0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D9B0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DA70) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DB30) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DBF0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DCB0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DD70) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DE30) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DEF0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DE90) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DDD0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DD10) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DC50) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DB90) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DAD0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311DA10) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D950) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D890) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D7D0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D710) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D650) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D590) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D4D0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D410) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D350) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D290) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311D1D0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311C7B0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311C690) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311C5A0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311C4B0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311C3F0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311C2D0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311C1E0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311C030) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311C510) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D311C330) {}>"
+        }
+      ],
+      "bone_count": 49
+    },
+    {
+      "asset": "/Game/Avatars/SK_ParametricMannequin_Skeleton",
+      "class": "Skeleton",
+      "name": "SK_ParametricMannequin_Skeleton",
+      "bone_tree": [
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D310E3A0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D310EAC0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A0D310ED60) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340660) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128341470) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340690) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A1283404E0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340300) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340870) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340840) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340660) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128341470) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340690) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A1283404E0) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340300) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340870) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340840) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128340660) {}>"
+        },
+        {
+          "name": "<Struct 'BoneNode' (0x000001A128341470) {}>"
+        }
+      ],
+      "bone_count": 19
+    }
+  ],
+  "meshes": [
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_MannyXR_left",
+      "class": "SkeletalMesh",
+      "name": "SKM_MannyXR_left",
+      "bone_error": "no ref_skeleton property",
+      "skeleton_asset": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "materials": [
+        "M_Torso"
+      ]
+    },
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_MannyXR_right",
+      "class": "SkeletalMesh",
+      "name": "SKM_MannyXR_right",
+      "bone_error": "no ref_skeleton property",
+      "skeleton_asset": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "materials": [
+        "M_Torso"
+      ]
+    },
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_QuinnXR_left",
+      "class": "SkeletalMesh",
+      "name": "SKM_QuinnXR_left",
+      "bone_error": "no ref_skeleton property",
+      "skeleton_asset": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "materials": [
+        "Quinn_02"
+      ]
+    },
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_QuinnXR_right",
+      "class": "SkeletalMesh",
+      "name": "SKM_QuinnXR_right",
+      "bone_error": "no ref_skeleton property",
+      "skeleton_asset": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "materials": [
+        "Quinn_02"
+      ]
+    },
+    {
+      "asset": "/Game/Avatars/SK_ParametricMannequin",
+      "class": "SkeletalMesh",
+      "name": "SK_ParametricMannequin",
+      "bone_error": "no ref_skeleton property",
+      "skeleton_asset": "/Game/Avatars/SK_ParametricMannequin_Skeleton.SK_ParametricMannequin_Skeleton",
+      "materials": [
+        "HumanB_Blue_Mat",
+        "HumanB_Joint_Mat",
+        "Human_Eyes_Mat"
+      ]
+    }
+  ]
+}

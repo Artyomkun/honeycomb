@@ -1,0 +1,158 @@
+{
+  "class": "/Script/Honeycomb.HoneycombGround",
+  "spawned": true,
+  "checks": [
+    {
+      "check": "cell_counts",
+      "passed": true,
+      "detail": "{\"0\": 1, \"1\": 7, \"2\": 19, \"3\": 37, \"5\": 91}"
+    },
+    {
+      "check": "cell_roundtrip",
+      "passed": true,
+      "detail": "37 centres"
+    },
+    {
+      "check": "cell_unique",
+      "passed": true,
+      "detail": "37 distinct cells"
+    },
+    {
+      "check": "cell_outside_rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "cell_outside_ring",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "cell_neighbors",
+      "passed": true,
+      "detail": "37 cells"
+    },
+    {
+      "check": "cell_pitch",
+      "passed": true,
+      "detail": "162.813 cm"
+    },
+    {
+      "check": "flat_top_spacing",
+      "passed": true,
+      "detail": "{\"x\": 141.0, \"y_north\": 162.8128, \"expected_x\": 141.0, \"expected_y\": 162.8128}"
+    },
+    {
+      "check": "noise_range",
+      "passed": true,
+      "detail": "min=0.0000 max=0.9689"
+    },
+    {
+      "check": "noise_deterministic",
+      "passed": true,
+      "detail": "169 samples"
+    },
+    {
+      "check": "spawn_cell_count",
+      "passed": true,
+      "detail": "37"
+    },
+    {
+      "check": "spawn_sections",
+      "passed": true,
+      "detail": "37"
+    },
+    {
+      "check": "spawn_vertex_count",
+      "passed": true,
+      "detail": "962"
+    },
+    {
+      "check": "spawn_triangle_count",
+      "passed": true,
+      "detail": "888"
+    },
+    {
+      "check": "spawn_bounds",
+      "passed": true,
+      "detail": "{\"origin\": [0.0, 0.0, -15.16], \"extent_x\": 1034.0, \"extent_y\": 1139.69, \"extent_z\": 57.67}"
+    },
+    {
+      "check": "spawn_relief",
+      "passed": true,
+      "detail": "min=-14.00 max=13.67"
+    },
+    {
+      "check": "spawn_collision",
+      "passed": true,
+      "detail": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>"
+    },
+    {
+      "check": "highlight_set",
+      "passed": true,
+      "detail": "[0.55, 0.36, 0.08, 1.0] -> [1.0, 0.93, 0.55, 1.0]"
+    },
+    {
+      "check": "highlight_clear",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "highlight_outside",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "world_to_cell",
+      "passed": true,
+      "detail": "[2, -1]"
+    },
+    {
+      "check": "world_to_cell_outside",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "contains_cell",
+      "passed": true,
+      "detail": "ring 3"
+    },
+    {
+      "check": "spawn_cell_pitch",
+      "passed": true,
+      "detail": "162.813 cm over 222 pairs"
+    }
+  ],
+  "class_defaults": {
+    "rings": 3,
+    "cell_radius": 100.0,
+    "cell_gap": 12.0,
+    "cell_depth": 30.0,
+    "relief_scale": 14.0,
+    "create_collision": true
+  },
+  "mesh": {
+    "cells": 37,
+    "sections": 37,
+    "vertices": 962,
+    "triangles": 888,
+    "bounds": {
+      "origin": [
+        0.0,
+        0.0,
+        -15.16
+      ],
+      "extent_x": 1034.0,
+      "extent_y": 1139.69,
+      "extent_z": 57.67
+    },
+    "relief": {
+      "min_cm": -14.0,
+      "max_cm": 13.67
+    },
+    "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>"
+  },
+  "passed": true,
+  "checks_run": 24,
+  "failures": []
+}

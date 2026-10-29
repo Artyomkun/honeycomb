@@ -1,0 +1,37 @@
+{
+  "children_of_root": [
+    "pelvis"
+  ],
+  "children_of_empty": [],
+  "all_bones": [
+    "pelvis",
+    "spine",
+    "thigh_L",
+    "thigh_R",
+    "chest",
+    "shin_L",
+    "shin_R",
+    "neck",
+    "clavicle_L",
+    "clavicle_R",
+    "foot_L",
+    "foot_R",
+    "head",
+    "upper_arm_L",
+    "upper_arm_R",
+    "forearm_L",
+    "forearm_R",
+    "hand_L",
+    "hand_R"
+  ],
+  "bone_count": 19,
+  "parents": {
+    "upper_arm.L": "None",
+    "hand.L": "None",
+    "thigh.L": "None",
+    "foot.R": "None",
+    "head": "neck",
+    "pelvis": "root"
+  },
+  "lod0_verts": 32032
+}

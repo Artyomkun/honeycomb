@@ -1,0 +1,31 @@
+{
+  "blueprint": "/Game/Avatars/BP_PlayerAvatar",
+  "steps": [
+    "mesh SK_HoneycombAvatar loaded",
+    "created BP_PlayerAvatar from AHoneycombAvatar",
+    "blueprint compiled",
+    "body mesh asset assigned on the CDO",
+    "auto-fit defaults applied on the CDO",
+    "saved /Game/Avatars/BP_PlayerAvatar",
+    "mesh on the CDO bounds height 178.000 cm"
+  ],
+  "errors": [],
+  "cdo_is_honeycomb_avatar": true,
+  "mesh_asset": "/Game/Avatars/SK_HoneycombAvatar.SK_HoneycombAvatar",
+  "auto_fit": {
+    "authored_height_cm": 178.0,
+    "authored_arm_span_cm": 181.0,
+    "per_bone_arm_fit": true,
+    "auto_fit_arm_span": true,
+    "min_arm_bone_scale": 0.699999988079071,
+    "max_arm_bone_scale": 1.149999976158142,
+    "min_arm_span_cm": 120.0,
+    "max_arm_span_cm": 230.0,
+    "fit_on_begin_play": true,
+    "continuous_refit": true,
+    "refit_interval_seconds": 2.0
+  },
+  "mesh_vertices": 177.99999654423596,
+  "mesh_matches_request": true,
+  "passed": true
+}

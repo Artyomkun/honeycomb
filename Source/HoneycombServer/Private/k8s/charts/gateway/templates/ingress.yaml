@@ -1,0 +1,58 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "gateway.fullname" . }}
+  labels:
+    app: gateway
+    region: {{ .Values.region }}
+  annotations:
+    # Используем nginx-ingress как основной контроллер
+    kubernetes.io/ingress.class: nginx
+    
+    # Поддержка WebSocket
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/websocket-services: {{ include "gateway.fullname" . }}
+    
+    # Настройки прокси для больших объёмов данных
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"
+    
+    # Включение CORS для веб-клиентов
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    
+    # Принудительное использование HTTPS
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    
+    # Логирование для отладки
+    nginx.ingress.kubernetes.io/enable-access-log: "true"
+    nginx.ingress.kubernetes.io/access-log-format: '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" "$http_x_forwarded_for" $request_id'
+
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.ingress.host }}
+    secretName: {{ .Values.ingress.tlsSecretName }}
+  rules:
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ include "gateway.fullname" . }}
+            port:
+              number: 80
+      # Дополнительные пути для метрик/healthcheck
+      - path: /health
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ include "gateway.fullname" . }}
+            port:
+              number: 8080
+{{- end }}

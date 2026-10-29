@@ -1,0 +1,87 @@
+# Регион
+region: "ru-msk"
+
+# Количество реплик
+replicaCount: 3
+
+# Образ
+image:
+  repository: honeycomb/coordinator-local
+  tag: "1.0.0"
+  pullPolicy: Always
+
+# Настройки портов
+service:
+  grpcPort: 50054
+  httpPort: 8080
+
+# Ресурсы
+resources:
+  requests:
+    cpu: "500m"
+    memory: "1Gi"
+  limits:
+    cpu: "1"
+    memory: "2Gi"
+
+# Автомасштабирование
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 20
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+
+# Подключение к Redis
+redis:
+  host: "redis-region-ru-msk"
+  port: 6379
+  passwordSecret:
+    name: "honeycomb-secrets"
+    key: redis-password
+
+# Настройки координатора
+coordinator:
+  # Время жизни чанка без игроков (в секундах)
+  chunkTTL: 300
+  # Максимальное количество игроков на чанк
+  maxPlayersPerChunk: 100
+  # Интервал синхронизации с глобальным координатором (в секундах)
+  globalSyncInterval: 60
+
+# Логирование
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+
+# Метрики
+metrics:
+  enabled: true
+  port: 9090
+  path: "/metrics"
+
+# Health Check
+healthCheck:
+  enabled: true
+  path: "/health"
+  port: 8080
+
+# PodDisruptionBudget
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 2
+
+# Терминация
+terminationGracePeriodSeconds: 30
+
+# Дополнительные аннотации
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "9090"
+
+nodeSelector: {}
+tolerations: []
+
+secrets:
+  create: false

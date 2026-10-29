@@ -1,0 +1,15 @@
+{{- if .Values.podDisruptionBudget.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "global-coordinator.fullname" . }}
+  labels:
+    app: global-coordinator
+spec:
+  # Для глобального координатора критично сохранять доступность
+  # Используем minAvailable, чтобы всегда оставался рабочий координатор
+  minAvailable: {{ .Values.podDisruptionBudget.minAvailable }}
+  selector:
+    matchLabels:
+      app: global-coordinator
+{{- end }}

@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "coordinator-local.fullname" . }}
+  labels:
+    app: coordinator-local
+    region: {{ .Values.region }}
+spec:
+  # Стандартный ClusterIP для внутреннего доступа
+  type: ClusterIP
+  selector:
+    app: coordinator-local
+  ports:
+  - name: grpc
+    port: {{ .Values.service.grpcPort }}
+    targetPort: {{ .Values.service.grpcPort }}
+    protocol: TCP
+  - name: http
+    port: {{ .Values.service.httpPort }}
+    targetPort: {{ .Values.service.httpPort }}
+    protocol: TCP
+  - name: metrics
+    port: {{ .Values.metrics.port }}
+    targetPort: {{ .Values.metrics.port }}
+    protocol: TCP
+---
+{{- if .Values.service.loadBalancer.enabled }}
+# Опционально: отдельный LoadBalancer для внешнего доступа (только для отладки)
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "coordinator-local.fullname" . }}-external
+  labels:
+    app: coordinator-local
+    region: {{ .Values.region }}
+spec:
+  type: LoadBalancer
+  selector:
+    app: coordinator-local
+  ports:
+  - name: grpc
+    port: {{ .Values.service.externalGrpcPort }}
+    targetPort: {{ .Values.service.grpcPort }}
+    protocol: TCP
+  - name: http
+    port: {{ .Values.service.externalHttpPort }}
+    targetPort: {{ .Values.service.httpPort }}
+    protocol: TCP
+{{- end }}

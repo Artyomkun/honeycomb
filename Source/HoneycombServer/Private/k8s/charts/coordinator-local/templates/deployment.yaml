@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "coordinator-local.fullname" . }}
+  labels:
+    app: coordinator-local
+    region: {{ .Values.region }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: coordinator-local
+  template:
+    metadata:
+      labels:
+        app: coordinator-local
+        region: {{ .Values.region }}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+    spec:
+      containers:
+      - name: coordinator
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.service.grpcPort }}
+          name: grpc
+        - containerPort: {{ .Values.service.httpPort }}
+          name: http
+        - containerPort: {{ .Values.metrics.port }}
+          name: metrics
+        env:
+        - name: REGION_ID
+          value: {{ .Values.region }}
+        - name: REDIS_ADDR
+          value: "{{ .Values.redis.host }}:{{ .Values.redis.port }}"
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.redis.passwordSecret.name }}
+              key: {{ .Values.redis.passwordSecret.key }}
+        - name: CHUNK_TTL
+          value: {{ .Values.coordinator.chunkTTL | quote }}
+        - name: MAX_PLAYERS_PER_CHUNK
+          value: {{ .Values.coordinator.maxPlayersPerChunk | quote }}
+        - name: GLOBAL_SYNC_INTERVAL
+          value: {{ .Values.coordinator.globalSyncInterval | quote }}
+        - name: LOG_LEVEL
+          value: {{ .Values.logging.level }}
+        resources:
+          requests:
+            cpu: {{ .Values.resources.requests.cpu }}
+            memory: {{ .Values.resources.requests.memory }}
+          limits:
+            cpu: {{ .Values.resources.limits.cpu }}
+            memory: {{ .Values.resources.limits.memory }}
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5

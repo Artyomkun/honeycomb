@@ -1,0 +1,75 @@
+{
+  "map": "/Game/Maps/L_HoneycombStreet",
+  "steps": [
+    "created_level",
+    "world_settings_game_mode_not_set"
+  ],
+  "actors": [
+    {
+      "class": "PlayerStart",
+      "label": "FlatPlayerStart",
+      "loc": [
+        0.0,
+        0.0,
+        150.0
+      ]
+    },
+    {
+      "class": "HoneycombGround",
+      "label": "HoneycombGround",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "class": "DirectionalLight",
+      "label": "Sun",
+      "loc": [
+        0.0,
+        0.0,
+        1500.0
+      ]
+    },
+    {
+      "class": "SkyLight",
+      "label": "SkyLight",
+      "loc": [
+        0.0,
+        0.0,
+        800.0
+      ]
+    },
+    {
+      "class": "SkyAtmosphere",
+      "label": "SkyAtmosphere",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "class": "ExponentialHeightFog",
+      "label": "HeightFog",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "class": "PostProcessVolume",
+      "label": "PostProcess",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "ok": true,
+  "world_settings_game_mode": false,
+  "saved": true
+}

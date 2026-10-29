@@ -1,0 +1,201 @@
+# Глобальные настройки
+global:
+  region: "ru-msk"
+  environment: "production"
+  # Имя секрета с общими секретами
+  secretsName: "honeycomb-secrets"
+
+# Настройки Gateway
+gateway:
+  enabled: true
+  region: "ru-msk"
+  replicaCount: 3
+  image:
+    repository: honeycomb/gateway
+    tag: "1.0.0"
+    pullPolicy: Always
+  service:
+    httpPort: 80
+    httpsPort: 443
+    grpcPort: 50052
+    metricsPort: 9090
+  ingress:
+    enabled: true
+    host: "gateway-ru-msk.honeycomb.world"
+    tlsSecretName: "gateway-tls-ru-msk"
+  resources:
+    requests:
+      cpu: "1"
+      memory: "2Gi"
+    limits:
+      cpu: "2"
+      memory: "4Gi"
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 50
+    targetCPUUtilizationPercentage: 70
+    targetMemoryUtilizationPercentage: 80
+    targetActiveConnections: 100
+  redis:
+    host: "redis-region-ru-msk"
+    port: 6379
+  globalCoordinator:
+    host: "global-coordinator.global.svc.cluster.local"
+    port: 50053
+  logging:
+    level: "info"
+    format: "json"
+  metrics:
+    enabled: true
+    port: 9090
+    path: "/metrics"
+  routing:
+    sessionTimeout: 3600
+    maxConnectionsPerIP: 10
+  websocket:
+    enabled: true
+    timeout: 3600
+  http3:
+    enabled: true
+    port: 443
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: 2
+  terminationGracePeriodSeconds: 30
+
+# Настройки Game Server
+game-server:
+  enabled: true
+  region: "ru-msk"
+  replicaCount: 3
+  image:
+    repository: honeycomb/game-server
+    tag: "1.0.0"
+    pullPolicy: Always
+  service:
+    type: ClusterIP
+    grpcPort: 50051
+    udpPort: 7777
+    http3Port: 443
+  resources:
+    requests:
+      cpu: "2"
+      memory: "4Gi"
+    limits:
+      cpu: "4"
+      memory: "8Gi"
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 50
+    targetCPUUtilizationPercentage: 70
+    targetMemoryUtilizationPercentage: 80
+    targetActiveConnections: 100
+  redis:
+    host: "redis-region-ru-msk"
+    port: 6379
+  oracle:
+    dsnSecret:
+      name: "honeycomb-secrets"
+      key: oracle-dsn
+    passwordSecret:
+      name: "honeycomb-secrets"
+      key: oracle-password
+  globalCoordinator:
+    host: "global-coordinator.global.svc.cluster.local"
+    port: 50053
+  logging:
+    level: "info"
+    format: "json"
+  metrics:
+    enabled: true
+    port: 9090
+    path: "/metrics"
+  game:
+    tickRate: 60
+    maxPlayersPerShard: 100
+    worldChunkSize: 3
+    saveInterval: 300
+  env:
+    - name: "ENVIRONMENT"
+      value: "production"
+    - name: "HTTP3_ENABLED"
+      value: "true"
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: 1
+  terminationGracePeriodSeconds: 30
+
+# Настройки Redis
+redis-region:
+  enabled: true
+  region: "ru-msk"
+  replicaCount: 3
+  image:
+    repository: redis
+    tag: "7.2.4"
+    pullPolicy: IfNotPresent
+  service:
+    port: 6379
+  persistence:
+    enabled: true
+    size: 10Gi
+    storageClass: "fast-ssd"
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "1Gi"
+    limits:
+      cpu: "1"
+      memory: "2Gi"
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: 2
+  terminationGracePeriodSeconds: 30
+
+# Настройки Oracle
+oracle-region:
+  enabled: true
+  region: "ru-msk"
+  replicaCount: 1
+  image:
+    repository: container-registry.oracle.com/database/enterprise
+    tag: "21.3.0"
+    pullPolicy: IfNotPresent
+  service:
+    port: 1521
+  persistence:
+    enabled: true
+    size: 200Gi
+    storageClass: "fast-ssd"
+  backup:
+    enabled: true
+    schedule: "0 2 * * *"
+    retention: 7
+    bucket: "s3://honeycomb-backups/oracle/ru-msk"
+  oracle:
+    sid: "ORCL"
+    pdb: "PDB1"
+  resources:
+    requests:
+      cpu: "4"
+      memory: "16Gi"
+    limits:
+      cpu: "8"
+      memory: "32Gi"
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: 1
+  terminationGracePeriodSeconds: 60
+  nodeSelector:
+    node-type: "database"
+  tolerations:
+    - key: "database"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+
+# Секреты (создаются отдельно)
+secrets:
+  create: false

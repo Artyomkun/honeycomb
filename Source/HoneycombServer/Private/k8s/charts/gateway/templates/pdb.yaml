@@ -1,0 +1,16 @@
+{{- if .Values.podDisruptionBudget.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "gateway.fullname" . }}
+  labels:
+    app: gateway
+    region: {{ .Values.region }}
+spec:
+  # Минимальное количество подов, которые должны оставаться работающими
+  # Используем minAvailable для гарантии доступности
+  minAvailable: {{ .Values.podDisruptionBudget.minAvailable }}
+  selector:
+    matchLabels:
+      app: gateway
+{{- end }}

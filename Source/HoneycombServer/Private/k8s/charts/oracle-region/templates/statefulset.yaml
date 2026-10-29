@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "oracle-region.fullname" . }}
+spec:
+  serviceName: {{ include "oracle-region.fullname" . }}
+  replicas: 1   # для шарда один мастер
+  selector:
+    matchLabels:
+      app: oracle-region
+  template:
+    metadata:
+      labels:
+        app: oracle-region
+    spec:
+      containers:
+      - name: oracle
+        image: "container-registry.oracle.com/database/enterprise:21.3.0.0"
+        env:
+        - name: ORACLE_SID
+          value: "ORCL"
+        - name: ORACLE_PDB
+          value: "PDB1"
+        - name: ORACLE_PWD
+          valueFrom:
+            secretKeyRef:
+              name: oracle-secret-region
+              key: password
+        ports:
+        - containerPort: 1521
+          name: oracle
+        volumeMounts:
+        - name: oracle-data
+          mountPath: /opt/oracle/oradata
+        - name: oracle-backup
+          mountPath: /opt/oracle/backup
+        resources:
+          requests:
+            cpu: "4"
+            memory: "16Gi"
+          limits:
+            cpu: "8"
+            memory: "32Gi"
+        livenessProbe:
+          exec:
+            command:
+            - sqlplus
+            - -L
+            - sys/$(ORACLE_PWD)@//localhost:1521/ORCL as sysdba
+            - "select 1 from dual;"
+          initialDelaySeconds: 30
+          periodSeconds: 20
+      volumes:
+      - name: oracle-backup
+        persistentVolumeClaim:
+          claimName: oracle-backup-pvc
+  volumeClaimTemplates:
+  - metadata:
+      name: oracle-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 200Gi
+      storageClassName: fast-ssd

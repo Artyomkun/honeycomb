@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "materials": [
+    "/Game/Materials/M_StreetBuilding",
+    "/Game/Materials/M_StreetRoad"
+  ]
+}

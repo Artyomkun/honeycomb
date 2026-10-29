@@ -1,0 +1,74 @@
+# Регион
+region: "ru-msk"
+
+# Количество реплик (StatefulSet)
+replicaCount: 3
+
+# Образ Redis
+image:
+  repository: redis
+  tag: "7.2.4"
+  pullPolicy: IfNotPresent
+
+# Настройки портов
+service:
+  port: 6379
+  # Для внешнего доступа (например, отладка)
+  externalPort: 31379
+  loadBalancer:
+    enabled: false
+
+# Настройки хранилища
+persistence:
+  enabled: true
+  size: 10Gi
+  storageClass: "fast-ssd"
+  accessModes:
+    - ReadWriteOnce
+
+# Настройки Redis
+redis:
+  # Пароль хранится в секретах
+  password: ""
+
+# Ресурсы
+resources:
+  requests:
+    cpu: "500m"
+    memory: "1Gi"
+  limits:
+    cpu: "1"
+    memory: "2Gi"
+
+# Автомасштабирование
+autoscaling:
+  enabled: false
+
+# PodDisruptionBudget
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 2
+
+# Терминация
+terminationGracePeriodSeconds: 30
+
+# Дополнительные аннотации для подов
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "9121"
+  prometheus.io/path: "/metrics"
+
+# Селектор узлов
+nodeSelector:
+  node-type: "cache"
+
+# Толерантности (для выделенных нод)
+tolerations:
+  - key: "cache"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
+
+# Секреты (создаются в templates/secrets.yaml)
+secrets:
+  create: false

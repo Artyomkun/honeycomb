@@ -1,0 +1,115 @@
+# Регион
+region: "ru-msk"
+
+# Количество реплик
+replicaCount: 3
+
+# Стратегия обновления
+updateStrategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+
+# Образ контейнера
+image:
+  repository: honeycomb/game-server
+  tag: "1.0.0"
+  pullPolicy: Always
+
+# Настройки портов
+service:
+  type: ClusterIP
+  grpcPort: 50051
+  udpPort: 7777
+  http3Port: 443
+
+# Ресурсы
+resources:
+  requests:
+    cpu: "2"
+    memory: "4Gi"
+  limits:
+    cpu: "4"
+    memory: "8Gi"
+
+# Автомасштабирование (HPA)
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 50
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+  # Кастомная метрика — количество игроков на под
+  targetActiveConnections: 100
+
+# Подключение к Redis
+redis:
+  host: "{{ .Release.Name }}-redis-region"
+  port: 6379
+  passwordSecret:
+    name: "{{ include \"honeycomb.fullname\" . }}-secrets"
+    key: redis-password
+
+# Подключение к Oracle
+oracle:
+  dsnSecret:
+    name: "{{ include \"honeycomb.fullname\" . }}-secrets"
+    key: oracle-dsn
+  passwordSecret:
+    name: "{{ include \"honeycomb.fullname\" . }}-secrets"
+    key: oracle-password
+
+# Логирование
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+
+# Метрики (Prometheus)
+metrics:
+  enabled: true
+  port: 9090
+  path: "/metrics"
+
+# Настройки игровой логики
+game:
+  tickRate: 60
+  maxPlayersPerShard: 100
+  worldChunkSize: 3
+  saveInterval: 300
+
+# Дополнительные переменные окружения
+env:
+  - name: "ENVIRONMENT"
+    value: "production"
+  - name: "HTTP3_ENABLED"
+    value: "true"
+
+# Подключение к глобальному координатору
+globalCoordinator:
+  host: "global-coordinator.global.svc.cluster.local"
+  port: 50053
+
+# PodDisruptionBudget
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+# Терминация
+terminationGracePeriodSeconds: 30
+
+# Дополнительные аннотации для подов
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "9090"
+
+# Селектор узлов
+nodeSelector: {}
+
+# Толерантности (для выделенных нод)
+tolerations: []
+
+# Секреты (создаются в templates/secrets.yaml)
+secrets:
+  create: false

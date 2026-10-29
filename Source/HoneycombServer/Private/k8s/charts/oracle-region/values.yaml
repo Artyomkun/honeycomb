@@ -1,0 +1,82 @@
+# Регион
+region: "ru-msk"
+
+# Количество реплик (только для statefulset)
+replicaCount: 1
+
+# Образ Oracle
+image:
+  repository: container-registry.oracle.com/database/enterprise
+  tag: "21.3.0"
+  pullPolicy: IfNotPresent
+
+# Настройки портов
+service:
+  port: 1521
+  # Для внешнего доступа (например, DBeaver)
+  externalPort: 31521
+  loadBalancer:
+    enabled: false
+
+# Настройки хранилища
+persistence:
+  enabled: true
+  size: 200Gi
+  storageClass: "fast-ssd"
+  accessModes:
+    - ReadWriteOnce
+
+# Настройки бэкапов
+backup:
+  enabled: true
+  schedule: "0 2 * * *"  # Каждый день в 2:00
+  retention: 365           # Хранить 365 дней
+  bucket: "s3://honeycomb-backups/oracle/ru-msk"
+
+# Настройки Oracle
+oracle:
+  sid: "ORCL"
+  pdb: "PDB1"
+  # Пароль хранится в секретах
+  dsn: "localhost:1521/ORCL"
+
+# Ресурсы
+resources:
+  requests:
+    cpu: "4"
+    memory: "16Gi"
+  limits:
+    cpu: "8"
+    memory: "32Gi"
+
+# Автомасштабирование
+autoscaling:
+  enabled: false
+
+# PodDisruptionBudget
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+# Терминация
+terminationGracePeriodSeconds: 60
+
+# Дополнительные аннотации для подов
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "9090"
+
+# Селектор узлов
+nodeSelector:
+  node-type: "database"
+
+# Толерантности (для выделенных нод)
+tolerations:
+  - key: "database"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
+
+# Секреты (создаются в templates/secrets.yaml)
+secrets:
+  create: false

@@ -1,0 +1,40 @@
+apiVersion: v2
+name: oracle-region
+description: |
+  Oracle shard for the Honeycomb VR world.
+  Each region runs its own Oracle instance to keep player data close to the game servers.
+
+# Тип чарта
+type: application
+
+# Версия чарта (увеличивай при изменении шаблонов)
+version: 0.1.0
+
+# Версия самого Oracle (или твоего Docker-образа)
+appVersion: "21.3.0"
+
+# Где живёт проект
+home: https://honeycomb.world
+
+# Ключевые слова для поиска в ArtifactHub
+keywords:
+  - oracle
+  - database
+  - shard
+  - honeycomb
+
+# Кто поддерживает чарт
+maintainers:
+  - name: Artem Selemet
+    email: selemetartem@gmail.com
+    url: https://github.com/Artyomkun
+
+# Минимальная версия Kubernetes
+kubeVersion: ">=1.28.0"
+
+# Аннотации для дополнительной информации
+annotations:
+  artifacthub.io/links: |
+    - name: Documentation
+      url: https://docs.honeycomb.world
+  artifacthub.io/operator: "false"

@@ -1,0 +1,80 @@
+{{- if .Values.autoscaling.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "global-coordinator.fullname" . }}
+  labels:
+    app: global-coordinator
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "global-coordinator.fullname" . }}
+  minReplicas: {{ .Values.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.autoscaling.maxReplicas }}
+  metrics:
+  # Стандартные метрики
+  {{- if .Values.autoscaling.targetCPUUtilizationPercentage }}
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
+  {{- end }}
+  {{- if .Values.autoscaling.targetMemoryUtilizationPercentage }}
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
+  {{- end }}
+  
+  # Кастомная метрика — количество RPS (запросов в секунду на под)
+  {{- if .Values.autoscaling.targetRequestsPerSecond }}
+  - type: Pods
+    pods:
+      metric:
+        name: rps_per_pod
+      target:
+        type: AverageValue
+        averageValue: {{ .Values.autoscaling.targetRequestsPerSecond }}
+  {{- end }}
+  
+  # Кастомная метрика — количество активных миграций на под
+  {{- if .Values.autoscaling.targetActiveMigrations }}
+  - type: Pods
+    pods:
+      metric:
+        name: active_migrations_per_pod
+      target:
+        type: AverageValue
+        averageValue: {{ .Values.autoscaling.targetActiveMigrations }}
+  {{- end }}
+
+  # Кастомная метрика — количество активных регионов на под
+  {{- if .Values.autoscaling.targetActiveRegions }}
+  - type: Pods
+    pods:
+      metric:
+        name: active_regions_per_pod
+      target:
+        type: AverageValue
+        averageValue: {{ .Values.autoscaling.targetActiveRegions }}
+  {{- end }}
+
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 10
+        periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
+{{- end }}

@@ -1,0 +1,151 @@
+{
+  "bones": 21,
+  "garments": {
+    "tee": {
+      "verts": 650,
+      "faces": 728
+    },
+    "trousers": {
+      "verts": 1410,
+      "faces": 1540
+    },
+    "shoes": {
+      "verts": 284,
+      "faces": 336
+    }
+  },
+  "body_verts": 2644,
+  "body_faces": 2744,
+  "parts": [
+    "arm_L",
+    "arm_R",
+    "foot_L",
+    "foot_R",
+    "head",
+    "leg_L",
+    "leg_R",
+    "torso"
+  ],
+  "armature": "HoneycombAvatar_rig",
+  "bone_names": [
+    "root",
+    "pelvis",
+    "spine_01",
+    "spine_02",
+    "spine_03",
+    "neck_01",
+    "head",
+    "clavicle_l",
+    "upperarm_l",
+    "lowerarm_l",
+    "hand_l",
+    "thigh_l",
+    "calf_l",
+    "foot_l",
+    "clavicle_r",
+    "upperarm_r",
+    "lowerarm_r",
+    "hand_r",
+    "thigh_r",
+    "calf_r",
+    "foot_r"
+  ],
+  "input": "C:\\Project\\Honeycomb\\Tools\\AvatarGen\\metrics.json",
+  "output": "C:\\Project\\Honeycomb\\Tools\\AvatarGen\\SK_HoneycombAvatar.fbx",
+  "metrics": {
+    "sex": "male",
+    "age": 32,
+    "height": 178.0,
+    "arm_span": 181.0,
+    "weight": 74.0,
+    "chest": 0.0,
+    "waist": 0.0,
+    "hip": 0.0,
+    "inseam": 0.0,
+    "shoulder_width": 0.0,
+    "head_circumference": 0.0,
+    "provenance": {
+      "height": "measured",
+      "arm_span": "measured",
+      "weight": "measured",
+      "arm_chain": "derived",
+      "bmi": "measured",
+      "shoulder_width": "derived",
+      "biiliac": "derived",
+      "chest_c": "derived",
+      "waist_c": "derived",
+      "hip_c": "derived",
+      "head_circumference": "derived"
+    },
+    "notes": [
+      "Height comes from HMD Z with LocalFloor tracking origin.",
+      "Arm span is the maximum observed distance between the two hand controllers.",
+      "Girths are regressed from BMI; the calibration step can override them."
+    ],
+    "sections": {
+      "z": {
+        "ground": 0.0,
+        "ankle": 6.942,
+        "knee": 50.73,
+        "crotch": 83.66,
+        "hip_joint": 94.34,
+        "waist": 110.36,
+        "iliac": 104.13,
+        "chest": 128.16,
+        "nipple": 130.82999999999998,
+        "shoulder": 145.60399999999998,
+        "neck_base": 147.028,
+        "chin": 155.038,
+        "eye": 166.43,
+        "head_top": 178.0
+      },
+      "girth": 0.12797495962282715,
+      "bmi": 23.355636914530994,
+      "torso": {
+        "shoulder_w": 46.102000000000004,
+        "shoulder_depth": 31.626626514374276,
+        "hip_w": 34.433089267725684,
+        "hip_depth": 28.378520647991937,
+        "chest_w": 34.96480048029593,
+        "chest_depth": 31.011713914366236,
+        "waist_w": 30.38173585667365,
+        "waist_depth": 28.40339026600653,
+        "neck_r": 9.256,
+        "shoulder_r": 15.13
+      },
+      "arm": {
+        "shoulder_z": 142.60399999999998,
+        "upper_len": 29.29207472727273,
+        "lower_len": 22.99270381818182,
+        "hand_len": 17.008301454545457,
+        "upper_r": 9.386298984889578,
+        "elbow_r": 7.211118171251453,
+        "wrist_r": 5.394670902750871,
+        "elbow_z": 114.90779922752033,
+        "wrist_z": 93.16777066417609,
+        "drop": 10.45695570909091,
+        "forward": 5.80941983838384,
+        "arm_scale": 0.8847431052093975,
+        "tpose_span": 181.00000000000003
+      },
+      "leg": {
+        "thigh_len": 43.61000000000001,
+        "shin_len": 43.788,
+        "thigh_r": 11.219603115071676,
+        "knee_r": 8.313743076327006,
+        "calf_r": 8.855943711739634,
+        "ankle_r": 5.394670902750871,
+        "thigh_x": 11.036,
+        "ankle_x": 7.12
+      },
+      "head": {
+        "height": 30.97200000000001,
+        "width": 15.493120000000001,
+        "depth": 19.480320000000003,
+        "chin_z": 155.038,
+        "eye_z": 166.43
+      }
+    }
+  },
+  "fbx_size_kb": 326.8
+}

@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "game-server.fullname" . }}
+  labels:
+    app: game-server
+    region: {{ .Values.region }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  selector:
+    matchLabels:
+      app: game-server
+  template:
+    metadata:
+      labels:
+        app: game-server
+        region: {{ .Values.region }}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+    spec:
+      terminationGracePeriodSeconds: 60   # время на сохранение состояния игроков
+      containers:
+      - name: game-server
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 7777
+          name: game-udp
+          protocol: UDP
+        - containerPort: 50051
+          name: grpc
+        - containerPort: 9090
+          name: metrics
+        env:
+        - name: REGION_ID
+          value: {{ .Values.region }}
+        - name: REDIS_ADDR
+          value: "{{ .Release.Name }}-redis-region:6379"
+        - name: ORACLE_DSN
+          valueFrom:
+            secretKeyRef:
+              name: oracle-secret-region
+              key: dsn
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        resources:
+          requests:
+            cpu: "2"
+            memory: "4Gi"
+          limits:
+            cpu: "4"
+            memory: "8Gi"
+        livenessProbe:
+          grpc:
+            port: 50051
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        readinessProbe:
+          grpc:
+            port: 50051
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        volumeMounts:
+        - name: game-data
+          mountPath: /var/game/data
+        - name: game-config
+          mountPath: /etc/game
+      volumes:
+      - name: game-data
+        emptyDir: {}
+      - name: game-config
+        configMap:
+          name: {{ include "game-server.fullname" . }}-config
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - game-server
+            topologyKey: kubernetes.io/hostname

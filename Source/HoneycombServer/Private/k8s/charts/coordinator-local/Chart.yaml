@@ -1,0 +1,28 @@
+apiVersion: v2
+name: coordinator-local
+description: |
+  Local chunk coordinator for the Honeycomb VR world.
+  Manages chunk ownership, server allocation, and player migration within a region.
+
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
+home: https://honeycomb.world
+keywords:
+  - coordinator
+  - chunk
+  - shard
+  - honeycomb
+
+maintainers:
+  - name: Artem Selemet
+    email: selemetartem@gmail.com
+    url: https://github.com/Artyomkun
+
+kubeVersion: ">=1.28.0"
+
+annotations:
+  artifacthub.io/links: |
+    - name: Documentation
+      url: https://docs.honeycomb.world

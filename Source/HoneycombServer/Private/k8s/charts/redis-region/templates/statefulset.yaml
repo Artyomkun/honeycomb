@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "redis-region.fullname" . }}
+spec:
+  serviceName: {{ include "redis-region.fullname" . }}
+  replicas: 3   # один мастер, два реплики для высокой доступности
+  selector:
+    matchLabels:
+      app: redis-region
+  template:
+    metadata:
+      labels:
+        app: redis-region
+    spec:
+      containers:
+      - name: redis
+        image: "redis:7.2.4-alpine"
+        command:
+        - redis-server
+        - /usr/local/etc/redis/redis.conf
+        ports:
+        - containerPort: 6379
+          name: redis
+        env:
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis-secret-region
+              key: password
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        volumeMounts:
+        - name: redis-config
+          mountPath: /usr/local/etc/redis
+        - name: redis-data
+          mountPath: /data
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+          limits:
+            cpu: "1"
+            memory: "2Gi"
+        livenessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 5
+          periodSeconds: 10
+      volumes:
+      - name: redis-config
+        configMap:
+          name: {{ include "redis-region.fullname" . }}-config
+  volumeClaimTemplates:
+  - metadata:
+      name: redis-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 20Gi
+      storageClassName: fast-ssd

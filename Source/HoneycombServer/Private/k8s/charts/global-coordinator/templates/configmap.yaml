@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "global-coordinator.fullname" . }}-config
+  labels:
+    {{- include "global-coordinator.labels" . | nindent 4 }}
+data:
+  # Настройки координатора
+  COORDINATOR_REGION_SYNC_INTERVAL: {{ .Values.coordinator.regionSyncInterval | quote }}
+  COORDINATOR_MIGRATION_TTL: {{ .Values.coordinator.migrationTTL | quote }}
+  COORDINATOR_MAX_CONCURRENT_MIGRATIONS: {{ .Values.coordinator.maxConcurrentMigrations | quote }}
+  COORDINATOR_ENVIRONMENT: {{ .Values.global.environment | quote }}
+
+  # Настройки Redis
+  REDIS_HOST: {{ .Values.redis.host | quote }}
+  REDIS_PORT: {{ .Values.redis.port | quote }}
+  REDIS_DB: {{ .Values.redis.db | default 0 | quote }}
+
+  # Настройки логирования
+  LOG_LEVEL: {{ .Values.logging.level | quote }}
+  LOG_FORMAT: {{ .Values.logging.format | quote }}
+
+  # Health Check
+  HEALTH_CHECK_PATH: {{ .Values.healthCheck.path | quote }}
+  HEALTH_CHECK_PORT: {{ .Values.healthCheck.port | quote }}
+
+  # Метрики
+  METRICS_PORT: {{ .Values.metrics.port | quote }}
+  METRICS_PATH: {{ .Values.metrics.path | quote }}
+
+  # gRPC
+  GRPC_PORT: {{ .Values.service.grpcPort | quote }}
+  HTTP_PORT: {{ .Values.service.httpPort | quote }}
+
+  # Дополнительные настройки
+  {{- if .Values.coordinator.extraConfig }}
+  {{- toYaml .Values.coordinator.extraConfig | nindent 2 }}
+  {{- end }}

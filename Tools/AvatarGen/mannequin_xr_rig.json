@@ -1,0 +1,229 @@
+{
+  "skeleton": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+  "meshes": [
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_MannyXR_left.SKM_MannyXR_left",
+      "materials": [
+        "M_Torso"
+      ],
+      "skeleton": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "bone_count_hint": 1
+    },
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_MannyXR_right.SKM_MannyXR_right",
+      "materials": [
+        "M_Torso"
+      ],
+      "skeleton": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "bone_count_hint": 1
+    },
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_QuinnXR_left.SKM_QuinnXR_left",
+      "materials": [
+        "Quinn_02"
+      ],
+      "skeleton": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "bone_count_hint": 1
+    },
+    {
+      "asset": "/Game/XRMannequins/Meshes/SKM_QuinnXR_right.SKM_QuinnXR_right",
+      "materials": [
+        "Quinn_02"
+      ],
+      "skeleton": "/Game/XRMannequins/Meshes/SK_MannequinsXR.SK_MannequinsXR",
+      "bone_count_hint": 1
+    }
+  ],
+  "root_bone": "root",
+  "bone_count": 47,
+  "bones": [
+    {
+      "name": "root",
+      "parent": "None"
+    },
+    {
+      "name": "hand_l",
+      "parent": "root"
+    },
+    {
+      "name": "index_metacarpal_l",
+      "parent": "hand_l"
+    },
+    {
+      "name": "index_01_l",
+      "parent": "index_metacarpal_l"
+    },
+    {
+      "name": "index_02_l",
+      "parent": "index_01_l"
+    },
+    {
+      "name": "index_03_l",
+      "parent": "index_02_l"
+    },
+    {
+      "name": "middle_metacarpal_l",
+      "parent": "hand_l"
+    },
+    {
+      "name": "middle_01_l",
+      "parent": "middle_metacarpal_l"
+    },
+    {
+      "name": "middle_02_l",
+      "parent": "middle_01_l"
+    },
+    {
+      "name": "middle_03_l",
+      "parent": "middle_02_l"
+    },
+    {
+      "name": "thumb_01_l",
+      "parent": "hand_l"
+    },
+    {
+      "name": "thumb_02_l",
+      "parent": "thumb_01_l"
+    },
+    {
+      "name": "thumb_03_l",
+      "parent": "thumb_02_l"
+    },
+    {
+      "name": "pinky_metacarpal_l",
+      "parent": "hand_l"
+    },
+    {
+      "name": "pinky_01_l",
+      "parent": "pinky_metacarpal_l"
+    },
+    {
+      "name": "pinky_02_l",
+      "parent": "pinky_01_l"
+    },
+    {
+      "name": "pinky_03_l",
+      "parent": "pinky_02_l"
+    },
+    {
+      "name": "ring_metacarpal_l",
+      "parent": "hand_l"
+    },
+    {
+      "name": "ring_01_l",
+      "parent": "ring_metacarpal_l"
+    },
+    {
+      "name": "ring_02_l",
+      "parent": "ring_01_l"
+    },
+    {
+      "name": "ring_03_l",
+      "parent": "ring_02_l"
+    },
+    {
+      "name": "wrist_outer_l",
+      "parent": "hand_l"
+    },
+    {
+      "name": "wrist_inner_l",
+      "parent": "hand_l"
+    },
+    {
+      "name": "palm_l",
+      "parent": "hand_l"
+    },
+    {
+      "name": "hand_r",
+      "parent": "root"
+    },
+    {
+      "name": "wrist_inner_r",
+      "parent": "hand_r"
+    },
+    {
+      "name": "wrist_outer_r",
+      "parent": "hand_r"
+    },
+    {
+      "name": "pinky_metacarpal_r",
+      "parent": "hand_r"
+    },
+    {
+      "name": "pinky_01_r",
+      "parent": "pinky_metacarpal_r"
+    },
+    {
+      "name": "pinky_02_r",
+      "parent": "pinky_01_r"
+    },
+    {
+      "name": "pinky_03_r",
+      "parent": "pinky_02_r"
+    },
+    {
+      "name": "ring_metacarpal_r",
+      "parent": "hand_r"
+    },
+    {
+      "name": "ring_01_r",
+      "parent": "ring_metacarpal_r"
+    },
+    {
+      "name": "ring_02_r",
+      "parent": "ring_01_r"
+    },
+    {
+      "name": "ring_03_r",
+      "parent": "ring_02_r"
+    },
+    {
+      "name": "middle_metacarpal_r",
+      "parent": "hand_r"
+    },
+    {
+      "name": "middle_01_r",
+      "parent": "middle_metacarpal_r"
+    },
+    {
+      "name": "middle_02_r",
+      "parent": "middle_01_r"
+    },
+    {
+      "name": "middle_03_r",
+      "parent": "middle_02_r"
+    },
+    {
+      "name": "index_metacarpal_r",
+      "parent": "hand_r"
+    },
+    {
+      "name": "index_01_r",
+      "parent": "index_metacarpal_r"
+    },
+    {
+      "name": "index_02_r",
+      "parent": "index_01_r"
+    },
+    {
+      "name": "index_03_r",
+      "parent": "index_02_r"
+    },
+    {
+      "name": "thumb_01_r",
+      "parent": "hand_r"
+    },
+    {
+      "name": "thumb_02_r",
+      "parent": "thumb_01_r"
+    },
+    {
+      "name": "thumb_03_r",
+      "parent": "thumb_02_r"
+    },
+    {
+      "name": "palm_r",
+      "parent": "hand_r"
+    }
+  ]
+}

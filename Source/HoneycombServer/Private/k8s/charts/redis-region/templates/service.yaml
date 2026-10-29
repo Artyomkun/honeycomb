@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "redis-region.fullname" . }}
+  labels:
+    app: redis-region
+    region: {{ .Values.region }}
+spec:
+  # Headless Service — каждый под получает свой DNS-запись
+  clusterIP: None
+  selector:
+    app: redis-region
+  ports:
+  - name: redis
+    port: {{ .Values.service.port }}
+    targetPort: 6379
+    protocol: TCP
+---
+{{- if .Values.service.loadBalancer.enabled }}
+# Опционально: отдельный LoadBalancer для внешнего доступа (например, для отладки)
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "redis-region.fullname" . }}-external
+  labels:
+    app: redis-region
+    region: {{ .Values.region }}
+spec:
+  type: LoadBalancer
+  selector:
+    app: redis-region
+  ports:
+  - name: redis
+    port: {{ .Values.service.externalPort }}
+    targetPort: 6379
+    protocol: TCP
+{{- end }}

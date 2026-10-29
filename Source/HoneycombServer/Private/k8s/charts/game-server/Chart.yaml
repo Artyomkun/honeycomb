@@ -1,0 +1,45 @@
+apiVersion: v2
+name: game-server
+description: |
+  Game Server for Honeycomb VR.
+  Responsible for game logic, client UDP/HTTP3 sessions, and state management.
+
+# Тип чарта (application или library)
+type: application
+
+# Версия чарта (SemVer 2.0)
+version: 0.1.0
+
+# Ключевые слова для поиска
+keywords:
+  - game-server
+  - vr
+  - multiplayer
+  - honeycomb
+
+# Информация об авторах
+maintainers:
+  - name: Artem Selemet
+    email: selemetartem@gmail.com
+    url: https://github.com/Artyomkun
+
+# Зависимости (если есть)
+dependencies:
+  - name: redis-region
+    version: ">=0.1.0"
+    repository: "file://../redis-region"
+    condition: redis-region.enabled
+  - name: oracle-region
+    version: ">=0.1.0"
+    repository: "file://../oracle-region"
+    condition: oracle-region.enabled
+
+# Минимальная версия Kubernetes
+kubeVersion: ">=1.28.0"
+
+# Аннотации для дополнительной информации
+annotations:
+  artifacthub.io/links: |
+    - name: Documentation
+      url: https://docs.honeycomb.world
+  artifacthub.io/operator: "false"

@@ -1,0 +1,15 @@
+{{- if .Values.podDisruptionBudget.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "oracle-region.fullname" . }}
+  labels:
+    app: oracle-region
+    region: {{ .Values.region }}
+spec:
+  # Для Oracle критично, чтобы хотя бы один под всегда был доступен
+  minAvailable: {{ .Values.podDisruptionBudget.minAvailable }}
+  selector:
+    matchLabels:
+      app: oracle-region
+{{- end }}
